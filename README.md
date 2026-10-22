@@ -99,7 +99,7 @@ Copy a skill into your agent's skills folder, run its script, and try its test p
 
 **Write your own**
 
-Four rules from Anthropic's authoring guide, a validator, and the install checks every skill should pass.
+Four rules drawn from Anthropic's authoring guide, a validator, and the install checks every skill should pass.
 
 [Write your own](#write-your-own) · [install safely](#install-safely)
 
@@ -111,7 +111,7 @@ Four rules from Anthropic's authoring guide, a validator, and the install checks
 
 | **skill** | **what it does** | **files** | **tests** |
 |---|---|---|---|
-| **[status-report](skills/status-report/)** | Drafts the monthly project status report from a tracker CSV. A script does the counting; the model writes the summary; a checklist makes the totals and dates match before it answers. | [![SKILL.md](https://img.shields.io/badge/read-SKILL.md-FFC400)](skills/status-report/SKILL.md) [![script](https://img.shields.io/badge/script-totals.py-blue)](skills/status-report/scripts/totals.py) [![template](https://img.shields.io/badge/template-report.md-lightgrey)](skills/status-report/templates/report.md) | [![evals](https://img.shields.io/badge/open-evals-orange)](evals/status-report/evals.md) [![pytest](https://img.shields.io/badge/pytest-5%20tests-green)](evals/status-report/test_totals.py) |
+| **[status-report](skills/status-report/)** | Drafts the monthly project status report from a tracker CSV. A script does the counting; the model writes the summary; a checklist makes the totals and dates match before it answers. | [![SKILL.md](https://img.shields.io/badge/read-SKILL.md-FFC400)](skills/status-report/SKILL.md) [![script](https://img.shields.io/badge/script-totals.py-blue)](skills/status-report/scripts/totals.py) [![template](https://img.shields.io/badge/template-report.md-lightgrey)](skills/status-report/templates/report.md) | [![evals](https://img.shields.io/badge/open-evals-orange)](evals/status-report/evals.md) [![pytest](https://img.shields.io/badge/pytest-5%20script%20tests-green)](evals/status-report/test_totals.py) |
 
 More skills will be added as examples for future videos.
 
@@ -128,8 +128,8 @@ cd agent-skills
 |---|---|---|
 | Claude Code | `.claude/skills/<name>/` | `~/.claude/skills/<name>/` |
 | Claude apps (desktop, web) | Zip the skill folder and upload it under your skills settings | |
-| Codex, Gemini CLI and other agents that read `.agents/skills/` | `.agents/skills/<name>/` | `~/.agents/skills/<name>/` |
-| VS Code (Copilot) | `.github/skills/`, `.claude/skills/` or `.agents/skills/` | your profile's skills folder |
+| Codex, Gemini CLI and other agents that read `.agents/skills/` | `.agents/skills/<name>/` (Gemini CLI also reads `.gemini/skills/`) | `~/.agents/skills/<name>/` |
+| VS Code (Copilot) | `.github/skills/`, `.claude/skills/` or `.agents/skills/` | `~/.copilot/skills/`, `~/.claude/skills/` or `~/.agents/skills/` |
 
 For example, for one project in Claude Code:
 
@@ -166,7 +166,7 @@ The description matches, `SKILL.md` loads, the script counts, the template gets 
 ```bash
 python3 -m pip install pytest
 python3 -m pytest -q evals tools
-# 10 passed
+# 10 passed (5 script tests + 5 validator tests)
 ```
 
 ## how skills work
@@ -201,7 +201,7 @@ flowchart LR
 
 ## write your own
 
-Three ways to start: write `SKILL.md` by hand, describe the job and let your agent interview you and draft it, or do the job once with the agent and ask it to save what worked. Then follow four rules from Anthropic's [skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices):
+Three ways to start: write `SKILL.md` by hand, describe the job and let your agent interview you and draft it, or do the job once with the agent and ask it to save what worked. Then follow four rules drawn from Anthropic's [skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices):
 
 | **rule** | **in practice** |
 |---|---|
@@ -251,7 +251,7 @@ It also warns when a description doesn't say when to use the skill.
 
 **A skill is software.** It runs with your agent's permissions: its shell, its files and its credentials.
 
-In February 2026, Snyk scanned 3,984 public skills: **36.8% had at least one security flaw** and **76 were confirmed malicious**. Before you install any skill, including these:
+In February 2026, the security company Snyk scanned 3,984 public skills: **36.8% had at least one security flaw** and **76 were confirmed malicious**. Before you install any skill, including these:
 
 1. **Read every file**, not just `SKILL.md`
 2. **Scan the scripts**
@@ -271,7 +271,7 @@ If an agent edits a skill, a person reviews the change before it's used again. M
 <td width="40%"><img src="docs/assets/video-thumbnail.jpg" width="100%" alt="Build skills, not agents? Kinvecta explainer video"></td>
 <td width="60%" valign="top">
 <b>Build skills, not agents? Anthropic's claim, checked</b><br>
-<sub><b>Length:</b> 9:22 · <b>Video:</b> coming soon</sub>
+<sub><b>Length:</b> 9:30 · <b>Video:</b> coming soon</sub>
 <p>Is it true that Anthropic's engineers stopped building agents? Mostly, but the headline goes too far. The claim checked against the sources; the <code>status-report</code> skill built from scratch; how skills load; four rules for writing one; what SkillsBench measured; and why every skill should be treated like code.</p>
 </td>
 </tr>
@@ -287,8 +287,8 @@ Related Kinvecta material: [The Memory Layer](https://github.com/Kinvecta/the-me
 | Anthropic Engineering, Oct 2025 (updated Dec 2025) | Skills as onboarding guides; progressive disclosure; security guidance | [![post](https://img.shields.io/badge/read-post-D97757)](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) |
 | Agent Skills specification | The open format: required fields, folders, limits | [![spec](https://img.shields.io/badge/read-spec-FFC400)](https://agentskills.io/specification) |
 | Claude Platform Docs | Skill authoring best practices | [![docs](https://img.shields.io/badge/read-guide-blue)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) |
-| Li et al., SkillsBench, Feb 2026 | Curated skills +16.2 points on average; self-generated skills no gain; a small model with skills beat a large one without | [![arXiv 2602.12670](https://img.shields.io/badge/arXiv-2602.12670-B31B1B)](https://arxiv.org/abs/2602.12670) |
-| Snyk, ToxicSkills, Feb 2026 | 3,984 public skills: 36.8% with a security flaw, 76 confirmed malicious | [![report](https://img.shields.io/badge/read-report-4C4A73)](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/) |
+| Li et al., SkillsBench (v4, June 2026) | Human-curated skills raised the average pass rate from 33.9% to 50.5% across 87 tasks; self-generated skills scored below no skills; compact skills beat comprehensive manuals | [![arXiv 2602.12670](https://img.shields.io/badge/arXiv-2602.12670-B31B1B)](https://arxiv.org/abs/2602.12670) |
+| Snyk, ToxicSkills, Feb 2026 (security-vendor research) | 3,984 public skills: 36.8% with a security flaw, 76 confirmed malicious | [![report](https://img.shields.io/badge/read-report-4C4A73)](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/) |
 
 ## FAQ
 
@@ -313,7 +313,7 @@ No. Skills run inside an agent. The advice is to build one general agent and sto
 <details>
 <summary><b>Can the model write its own skills?</b></summary>
 
-It can draft them, and that's a good way to start. But in SkillsBench, skills that models wrote for themselves without a human check gave no gain on average. Review, test and trim what it writes.
+It can draft them, and that's a good way to start. But in SkillsBench, skills that models wrote for themselves without a human check scored below having no skills at all. Review, test and trim what it writes.
 </details>
 
 <details>
