@@ -1,0 +1,29 @@
+title: "[Skill] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing what you built. Please don't post secrets, private data or anyone's personal information.
+  - type: textarea
+    id: what
+    attributes:
+      label: What does your skill do?
+      description: The job it handles, and its description line.
+    validations:
+      required: true
+  - type: input
+    id: tools
+    attributes:
+      label: Which agents load it?
+      placeholder: e.g. a coding agent, a desktop chat app, a CLI agent
+  - type: textarea
+    id: result
+    attributes:
+      label: Before and after
+      description: What changed when you ran the same task with and without the skill?
+  - type: textarea
+    id: link
+    attributes:
+      label: Link (optional)
+      description: A repo or gist with the skill folder.

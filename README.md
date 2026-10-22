@@ -1,0 +1,380 @@
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="Agent Skills by Kinvecta: write the know-how once, as a skill" width="100%">
+</p>
+
+<p align="center">
+  <a href="#skills">skills</a> | <a href="#install">install</a> | <a href="#how-skills-work">how they work</a> | <a href="#write-your-own">write your own</a> | <a href="#install-safely">install safely</a> | <a href="#video">video</a>
+</p>
+
+<br>
+
+<p align="center">
+  <a href="https://github.com/Kinvecta/agent-skills/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Kinvecta/agent-skills/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://github.com/Kinvecta/agent-skills/actions/workflows/security.yml"><img alt="Security" src="https://github.com/Kinvecta/agent-skills/actions/workflows/security.yml/badge.svg"></a>
+  <a href="LICENSE"><img alt="license MIT" src="https://img.shields.io/badge/license-MIT-green"></a>
+  <a href="LICENSE-CONTENT.md"><img alt="content CC BY 4.0" src="https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey"></a>
+  <img alt="python 3.10 | 3.11 | 3.12 | 3.13" src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue">
+</p>
+
+<p align="center">
+  <a href="https://agentskills.io/specification"><img alt="Agent Skills format" src="https://img.shields.io/badge/format-Agent%20Skills-FFC400"></a>
+  <a href="#validate"><img alt="validated on every push" src="https://img.shields.io/badge/skills-validated-8FB4E8"></a>
+  <a href="https://github.com/Kinvecta/the-memory-layer"><img alt="The Memory Layer" src="https://img.shields.io/badge/see%20also-The%20Memory%20Layer-0A1A2F"></a>
+  <a href="https://github.com/Kinvecta/agent-skills/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Kinvecta/agent-skills?style=social"></a>
+</p>
+
+> [!WARNING]
+> **Not actively maintained.** These skills are published as examples for Kinvecta training videos recorded in 2026. They are provided as is, without warranty, and are not monitored for issues or updates. Agent tools, skill formats and best practices change quickly. **A skill runs with your agent's permissions**, so read every file and test it before you install it. See [install safely](#install-safely) and [maintenance and security](#maintenance-and-security).
+
+<details>
+<summary><b>Table of Contents</b></summary>
+
+- [hello](#hello)
+- [start here](#start-here)
+- [skills](#skills)
+- [install](#install)
+- [quickstart](#quickstart)
+- [how skills work](#how-skills-work)
+- [write your own](#write-your-own)
+  - [validate](#validate)
+- [install safely](#install-safely)
+- [video](#video)
+- [the research](#the-research)
+- [FAQ](#faq)
+- [built with these skills](#built-with-these-skills)
+- [star history](#star-history)
+- [what's inside](#whats-inside)
+- [maintenance and security](#maintenance-and-security)
+
+</details>
+
+## hello
+
+<table>
+<tr>
+<td width="44%" valign="top">
+
+**Build the agent once. Teach it with skills.**
+
+A skill is a folder with a `SKILL.md` file: a name, a one-line description of when to use it, and the steps. Add scripts, templates and references, and any skills-ready agent can load it when the job comes up.
+
+This repo has worked examples you can copy, each with:
+
+- **A real skill** in the open [Agent Skills format](https://agentskills.io/specification)
+- **Test cases** with a baseline-then-skill method
+- **Automated tests** for every bundled script
+- **A validator** that checks format and risky patterns on every push
+
+</td>
+<td width="56%" valign="top">
+<img src="docs/assets/one-agent-many-skills.gif" width="100%" alt="Animation: four separate agents, each with its own prompt, tools and memory, compared with one agent whose skills folder gains a new skill for each new job">
+<br><sub><i>Four agents to build and fix, or one agent and a folder of skills.</i></sub>
+</td>
+</tr>
+</table>
+
+## start here
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+**Watch** (about 9 minutes)
+
+Is "build skills, not agents" true? The claim checked against the sources, plus a skill built from scratch.
+
+[Video](#video) · [the research](#the-research)
+
+</td>
+<td width="33%" valign="top">
+
+**Use** (about 5 minutes)
+
+Copy a skill into your agent's skills folder, run its script, and try its test prompts with and without it.
+
+[Install](#install) · [quickstart](#quickstart)
+
+</td>
+<td width="33%" valign="top">
+
+**Write your own**
+
+Four rules from Anthropic's authoring guide, a validator, and the install checks every skill should pass.
+
+[Write your own](#write-your-own) · [install safely](#install-safely)
+
+</td>
+</tr>
+</table>
+
+## skills
+
+| **skill** | **what it does** | **files** | **tests** |
+|---|---|---|---|
+| **[status-report](skills/status-report/)** | Drafts the monthly project status report from a tracker CSV. A script does the counting; the model writes the summary; a checklist makes the totals and dates match before it answers. | [![SKILL.md](https://img.shields.io/badge/read-SKILL.md-FFC400)](skills/status-report/SKILL.md) [![script](https://img.shields.io/badge/script-totals.py-blue)](skills/status-report/scripts/totals.py) [![template](https://img.shields.io/badge/template-report.md-lightgrey)](skills/status-report/templates/report.md) | [![evals](https://img.shields.io/badge/open-evals-orange)](evals/status-report/evals.md) [![pytest](https://img.shields.io/badge/pytest-5%20tests-green)](evals/status-report/test_totals.py) |
+
+More skills will be added as examples for future videos.
+
+## install
+
+Each skill is a self-contained folder. Copy the folder; don't copy the `evals/` (those are for you, not the agent).
+
+```bash
+git clone https://github.com/Kinvecta/agent-skills.git
+cd agent-skills
+```
+
+| **agent** | **project skills** | **personal skills** |
+|---|---|---|
+| Claude Code | `.claude/skills/<name>/` | `~/.claude/skills/<name>/` |
+| Claude apps (desktop, web) | Zip the skill folder and upload it under your skills settings | |
+| Codex, Gemini CLI and other agents that read `.agents/skills/` | `.agents/skills/<name>/` | `~/.agents/skills/<name>/` |
+| VS Code (Copilot) | `.github/skills/`, `.claude/skills/` or `.agents/skills/` | your profile's skills folder |
+
+For example, for one project in Claude Code:
+
+```bash
+mkdir -p /path/to/your/project/.claude/skills
+cp -R skills/status-report /path/to/your/project/.claude/skills/
+```
+
+Restart the agent, or start a new session, so it reads the new skill's name and description. Folder names and support change quickly, so check each tool's current docs.
+
+## quickstart
+
+The `status-report` skill, end to end.
+
+**1. Run the script on its own.** It's plain Python with no dependencies, and it prints JSON:
+
+```bash
+python3 skills/status-report/scripts/totals.py evals/status-report/tracker-2026-10.csv --month 2026-10
+# {"month": "2026-10", "total": 7,
+#  "counts": {"done": 2, "in progress": 2, "at risk": 1, "blocked": 1, "not started": 1},
+#  "due_this_month_not_done": [... 3 tasks ...], "due_next_month": [... 2 tasks ...], "problems": []}
+```
+
+**2. Ask your agent.** With the skill installed, in a folder that has the sample CSV:
+
+> Draft the October status report from evals/status-report/tracker-2026-10.csv
+
+The description matches, `SKILL.md` loads, the script counts, the template gets filled, and the checklist compares every number with the script's output.
+
+**3. Test it like Anthropic recommends.** Run the three prompts in [`evals.md`](evals/status-report/evals.md) once **without** the skill and once **with** it, and write down which checks pass. The third prompt is the tricky one: a status with a trailing space and a date in the wrong format.
+
+**4. Run the automated tests:**
+
+```bash
+python3 -m pip install pytest
+python3 -m pytest -q evals tools
+# 10 passed
+```
+
+## how skills work
+
+```mermaid
+flowchart LR
+    A["Session starts<br/>name + description of every skill<br/><i>about 100 tokens each</i>"] -->|"a task matches a description"| B["SKILL.md body loads<br/><i>the steps</i>"]
+    B -->|"only if a step needs it"| C["templates/ · references/<br/>open one file"]
+    B -->|"run, don't read"| D["scripts/<br/>only the output comes back"]
+    style A fill:#0F2440,stroke:#34507A,color:#C3CAD6
+    style B fill:#2A2A1E,stroke:#FFC400,color:#FFC400
+    style C fill:#0F2440,stroke:#8FB4E8,color:#FFFFFF
+    style D fill:#0F2440,stroke:#8FB4E8,color:#FFFFFF
+```
+
+<table>
+<tr>
+<td width="33%" valign="top" align="center">
+<img src="docs/assets/skill-anatomy.gif" width="100%" alt="Animation: the status-report folder and its SKILL.md, with callouts for what is always loaded, what loads on a match and what opens only when needed">
+<br><b>1 · A folder</b><br><sub><code>name</code> and <code>description</code> are required. The description is the trigger: a vague one never fires.</sub>
+</td>
+<td width="33%" valign="top" align="center">
+<img src="docs/assets/progressive-disclosure.gif" width="100%" alt="Animation: six skills installed, one description matches a request, its SKILL.md loads, then only the template">
+<br><b>2 · Loads in layers</b><br><sub>Dozens installed, one loaded. Anthropic calls this progressive disclosure.</sub>
+</td>
+<td width="33%" valign="top" align="center">
+<img src="docs/assets/prompt-to-skill.gif" width="100%" alt="Animation: a saved prompt becomes SKILL.md, gets a template and tests, is reviewed and versioned, then lands in one library used by chat, a code agent and the API">
+<br><b>3 · One library</b><br><sub>A saved prompt becomes a skill, gets tests and a review, and every tool pulls the same copy.</sub>
+</td>
+</tr>
+</table>
+
+## write your own
+
+Three ways to start: write `SKILL.md` by hand, describe the job and let your agent interview you and draft it, or do the job once with the agent and ask it to save what worked. Then follow four rules from Anthropic's [skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices):
+
+| **rule** | **in practice** |
+|---|---|
+| **1 · The description says what and when** | Third person, with the words people type: *"Drafts the monthly project status report... Use when the user asks for a status report."* |
+| **2 · Keep SKILL.md short** | Under 500 lines, only what the model doesn't already know. Put detail in files one level deep. |
+| **3 · Fragile steps get code** | Totals, payments, deletions: give an exact script, not a suggestion. |
+| **4 · Test first** | Run the task without the skill, note where it fails, then write just enough to fix that. At least three test cases. |
+
+Use [`skills/status-report/`](skills/status-report/) as a template:
+
+```text
+your-skill/
+├── SKILL.md            required: name + description, then the steps
+├── scripts/            code the agent runs (output only enters context)
+├── templates/          output layouts
+└── references/         detail the agent reads only when a step needs it
+```
+
+### validate
+
+`tools/validate_skills.py` checks every skill against the [Agent Skills specification](https://agentskills.io/specification) and some safety rules. It uses only the Python standard library and runs on every push.
+
+```bash
+python3 tools/validate_skills.py
+# ok    status-report
+# 1 skill(s), 0 error(s)
+```
+
+It fails a skill when:
+
+- `name` isn't 1–64 lowercase letters, digits and hyphens, doesn't match the folder, or uses a reserved word
+- `description` is missing, over 1,024 characters or contains angle brackets
+- the `SKILL.md` body is over 500 lines
+- `SKILL.md` mentions a `scripts/`, `references/`, `templates/` or `assets/` file that doesn't exist
+- any file pipes a download into a shell, decodes base64 at run time, contains an absolute local path or looks like it holds a secret
+
+It also warns when a description doesn't say when to use the skill.
+
+## install safely
+
+<table>
+<tr>
+<td width="45%" valign="top">
+<img src="docs/assets/install-checks.gif" width="100%" alt="Animation: two skills pass four checks; one from an internal registry lands in the approved library, one from a public registry is flagged for a piped download and an encoded payload and is quarantined">
+</td>
+<td width="55%" valign="top">
+
+**A skill is software.** It runs with your agent's permissions: its shell, its files and its credentials.
+
+In February 2026, Snyk scanned 3,984 public skills: **36.8% had at least one security flaw** and **76 were confirmed malicious**. Before you install any skill, including these:
+
+1. **Read every file**, not just `SKILL.md`
+2. **Scan the scripts**
+3. **Pin the version** (a tag or a commit, in your own approved copy)
+4. **Run it in a sandbox** before it touches real data
+
+If an agent edits a skill, a person reviews the change before it's used again. More in [SECURITY.md](SECURITY.md).
+
+</td>
+</tr>
+</table>
+
+## video
+
+<table>
+<tr>
+<td width="40%"><img src="docs/assets/video-thumbnail.jpg" width="100%" alt="Build skills, not agents? Kinvecta explainer video"></td>
+<td width="60%" valign="top">
+<b>Build skills, not agents? Anthropic's claim, checked</b><br>
+<sub><b>Length:</b> 9:22 · <b>Video:</b> coming soon</sub>
+<p>Is it true that Anthropic's engineers stopped building agents? Mostly, but the headline goes too far. The claim checked against the sources; the <code>status-report</code> skill built from scratch; how skills load; four rules for writing one; what SkillsBench measured; and why every skill should be treated like code.</p>
+</td>
+</tr>
+</table>
+
+Related Kinvecta material: [The Memory Layer](https://github.com/Kinvecta/the-memory-layer) (its brain is run by five skills: ingest, query, lint, reflect and remember) and [Part 2: The operating manual](https://youtu.be/rMirmmTu3VM) (when a rule belongs in `AGENTS.md` and when it belongs in a skill).
+
+## the research
+
+| **source** | **what it says** | **link** |
+|---|---|---|
+| Zhang & Murag (Anthropic), AI Engineer Code Summit, Nov 2025 | "Don't build agents, build skills instead": one general agent plus domain expertise | [![talk](https://img.shields.io/badge/watch-talk-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=CEvIs9y1uog) |
+| Anthropic Engineering, Oct 2025 (updated Dec 2025) | Skills as onboarding guides; progressive disclosure; security guidance | [![post](https://img.shields.io/badge/read-post-D97757)](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) |
+| Agent Skills specification | The open format: required fields, folders, limits | [![spec](https://img.shields.io/badge/read-spec-FFC400)](https://agentskills.io/specification) |
+| Claude Platform Docs | Skill authoring best practices | [![docs](https://img.shields.io/badge/read-guide-blue)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) |
+| Li et al., SkillsBench, Feb 2026 | Curated skills +16.2 points on average; self-generated skills no gain; a small model with skills beat a large one without | [![arXiv 2602.12670](https://img.shields.io/badge/arXiv-2602.12670-B31B1B)](https://arxiv.org/abs/2602.12670) |
+| Snyk, ToxicSkills, Feb 2026 | 3,984 public skills: 36.8% with a security flaw, 76 confirmed malicious | [![report](https://img.shields.io/badge/read-report-4C4A73)](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/) |
+
+## FAQ
+
+<details>
+<summary><b>Is this only for Claude?</b></summary>
+
+No. Agent Skills started at Anthropic and became an open standard in December 2025. Many agents now read the same `SKILL.md` folders, including Claude Code, Codex, Gemini CLI and VS Code. Support changes quickly, so check each tool's current docs.
+</details>
+
+<details>
+<summary><b>Skills or MCP?</b></summary>
+
+Both. MCP connects the agent to your systems (a database, a ticket tracker, a file store). A skill teaches it how to use them well: the steps, the checks, the format your team expects.
+</details>
+
+<details>
+<summary><b>So should I stop building agents?</b></summary>
+
+No. Skills run inside an agent. The advice is to build one general agent and stop building a new one for every job. Separate agents still make sense when you need isolation, parallel work or different permissions per job.
+</details>
+
+<details>
+<summary><b>Can the model write its own skills?</b></summary>
+
+It can draft them, and that's a good way to start. But in SkillsBench, skills that models wrote for themselves without a human check gave no gain on average. Review, test and trim what it writes.
+</details>
+
+<details>
+<summary><b>Can I use these at work?</b></summary>
+
+The code is MIT and the content is CC BY 4.0. The repository isn't actively maintained, so review and test each skill, keep your own approved copy, and follow your organization's rules on which data may go into an AI tool.
+</details>
+
+## built with these skills
+
+Wrote your own skill from this template? Share it in [Discussions → Show and tell](https://github.com/Kinvecta/agent-skills/discussions/categories/show-and-tell): what job it handles, which agents load it, and what changed when you ran the same task with and without it.
+
+Please don't post secrets, private data or anyone's personal information. Posts are read on a best-effort basis.
+
+## star history
+
+<a href="https://star-history.com/#Kinvecta/agent-skills&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Kinvecta/agent-skills&type=Date&theme=dark">
+    <img alt="Star history chart for Kinvecta/agent-skills" src="https://api.star-history.com/svg?repos=Kinvecta/agent-skills&type=Date" width="100%">
+  </picture>
+</a>
+
+## what's inside
+
+| Folder | What it is |
+|---|---|
+| [`skills/`](skills/) | **Installable skills.** Each folder is one skill: `SKILL.md` plus its scripts, templates and references. |
+| [`evals/`](evals/) | **Tests for each skill**: prompts to run with and without the skill, sample data, and pytest tests for the scripts. Not installed with the skill. |
+| [`tools/`](tools/) | **`validate_skills.py`**: format and safety checks for every skill, with its own tests. |
+| [`docs/`](docs/) | README images and animations. |
+
+## maintenance and security
+
+This repository is a snapshot that accompanies the videos. It is **not actively maintained**:
+
+- **Formats and support change.** Skill folder locations, frontmatter fields and agent support reflect late 2026. Check each tool's current documentation.
+- **Pull requests and issues may not get a response.** Fork the repository if you need changes.
+- **Treat every skill as code**, including these. Read every file, pin a version, and run it in a sandbox first.
+
+Automated checks run on GitHub Actions: the skill validator, tests on Python 3.10–3.13, a secret scan of the full history (Gitleaks), CodeQL code scanning and Dependabot updates for the workflows. Passing checks lower the risk but do not prove a skill is safe. To report a vulnerability, see [SECURITY.md](SECURITY.md).
+
+## notes
+
+- Product names are examples, not endorsements.
+- No secrets, personal data or audio/video files are stored in this repository. The sample tracker data is made up.
+
+## license
+
+- **Code** (`skills/*/scripts/`, `tools/`, tests): [MIT](LICENSE)
+- **Content** (skill instructions, templates, references, evals, docs): [CC BY 4.0](LICENSE-CONTENT.md)
+
+© 2026 Mark D. Espinoza / Kinvecta.
+
+<br>
+
+<p align="center">
+  <a href="https://kinvecta.ai">&nbsp;<img src="docs/assets/icons/website.svg" width="32" height="32" alt="Kinvecta" title="Kinvecta"></a>
+  <a href="skills/">&nbsp;<img src="docs/assets/icons/docs.svg" width="32" height="32" alt="Skills" title="Skills"></a>
+  <a href="evals/">&nbsp;<img src="docs/assets/icons/lab.svg" width="32" height="32" alt="Evals" title="Evals"></a>
+  <a href="#the-research">&nbsp;<img src="docs/assets/icons/research.svg" width="32" height="32" alt="Research" title="Research"></a>
+</p>
+<p align="center"><sub>If this helped, a star helps others find it.</sub></p>
+<p align="center"><sub>Built by <a href="https://kinvecta.ai">Kinvecta</a> · videos, code and labs for teams adopting AI</sub></p>
