@@ -17,6 +17,7 @@
 </p>
 
 <p align="center">
+  <a href="https://youtu.be/hmE25ADu-AY"><img alt="Watch on YouTube" src="https://img.shields.io/badge/watch-YouTube-red?logo=youtube&logoColor=white"></a>
   <a href="https://agentskills.io/specification"><img alt="Agent Skills format" src="https://img.shields.io/badge/format-Agent%20Skills-FFC400"></a>
   <a href="#validate"><img alt="validated on every push" src="https://img.shields.io/badge/skills-validated-8FB4E8"></a>
   <a href="https://github.com/Kinvecta/the-memory-layer"><img alt="The Memory Layer" src="https://img.shields.io/badge/see%20also-The%20Memory%20Layer-0A1A2F"></a>
@@ -83,7 +84,7 @@ This repo has worked examples you can copy, each with:
 
 Is "build skills, not agents" true? The claim checked against the sources, plus a skill built from scratch.
 
-[Video](#video) · [the research](#the-research)
+[Watch on YouTube](https://youtu.be/hmE25ADu-AY) · [the research](#the-research)
 
 </td>
 <td width="33%" valign="top">
@@ -268,10 +269,10 @@ If an agent edits a skill, a person reviews the change before it's used again. M
 
 <table>
 <tr>
-<td width="40%"><img src="docs/assets/video-thumbnail.jpg" width="100%" alt="Build skills, not agents? Kinvecta explainer video"></td>
+<td width="40%"><a href="https://youtu.be/hmE25ADu-AY"><img src="docs/assets/video-thumbnail.jpg" width="100%" alt="Watch: Build skills, not agents? Anthropic's claim, checked"></a></td>
 <td width="60%" valign="top">
-<b>Build skills, not agents? Anthropic's claim, checked</b><br>
-<sub><b>Length:</b> 9:30 · <b>Video:</b> coming soon</sub>
+<b><a href="https://youtu.be/hmE25ADu-AY">Build skills, not agents? Anthropic's claim, checked</a></b><br>
+<sub><b>Published:</b> 22 Oct 2026 · <b>Length:</b> 9:30 · <a href="https://www.youtube.com/playlist?list=PLZ1VbKY-g_Ok">Explainers playlist&nbsp;→</a></sub>
 <p>Is it true that Anthropic's engineers stopped building agents? Mostly, but the headline goes too far. The claim checked against the sources; the <code>status-report</code> skill built from scratch; how skills load; four rules for writing one; what SkillsBench measured; and why every skill should be treated like code.</p>
 </td>
 </tr>
