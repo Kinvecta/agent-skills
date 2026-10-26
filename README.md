@@ -91,6 +91,10 @@ Then: what makes a skill poor, good or great, and the approaches people copy.
 
 [Watch part 2](https://youtu.be/6jsMh0dfNe8) · [the rubric](docs/skill-quality.md)
 
+Then: how to test a skill, with 1,044 real runs of our own skills.
+
+[Watch part 3](https://youtu.be/AECWUxSOnYg) · [the experiment](evals/experiment-2026-10-25/)
+
 </td>
 <td width="33%" valign="top">
 
@@ -317,6 +321,14 @@ If an agent edits a skill, a person reviews the change before it's used again. M
 <b><a href="https://youtu.be/6jsMh0dfNe8">AI Agent Skills: What Makes One Actually Work</a></b><br>
 <sub><b>Published:</b> 25 Oct 2026 · <b>Length:</b> 9:40 · <a href="https://www.youtube.com/playlist?list=PLZ1VbKY-g_Ok">Explainers playlist&nbsp;→</a></sub>
 <p>Of 49 public software-engineering skills, 39 changed nothing. Why most skills never fire, say too much or go unchecked; what good skills fix; what great ones add (gotchas, boundaries, tests); and the same <code>release-notes</code> skill at all three levels. Uses the <a href="docs/skill-quality.md">rubric</a>, the <a href="examples/poor-good-great/">examples</a> and the <code>skill-review</code> skill.</p>
+</td>
+</tr>
+<tr>
+<td width="40%"><a href="https://youtu.be/AECWUxSOnYg"><img src="docs/assets/video-3-thumbnail.jpg" width="100%" alt="Watch: We Tested Our Own AI Skills 1,044 Times. Here's How"></a></td>
+<td width="60%" valign="top">
+<b><a href="https://youtu.be/AECWUxSOnYg">We Tested Our Own AI Skills 1,044 Times. Here's How</a></b><br>
+<sub><b>Published:</b> 26 Oct 2026 · <b>Length:</b> 10:21 · <a href="https://www.youtube.com/playlist?list=PLZ1VbKY-g_Ok">Explainers playlist&nbsp;→</a></sub>
+<p>Three tests, not one: does it fire, does it help, and does it still help on your model? Runs that passed every check went from 2 of 54 without the skill to 43 of 54 with it, across Haiku, Sonnet and Opus. How we built the cases and near misses, kept the runs isolated, made the grader quote its evidence, and found and fixed a bug in our own <code>status-report</code> skill (2 of 9 runs to 9 of 9). The runner, grader and every transcript are in <a href="evals/experiment-2026-10-25/">evals/experiment-2026-10-25</a>; the steps are in <a href="evals/README.md">evals/README.md</a>.</p>
 </td>
 </tr>
 </table>
