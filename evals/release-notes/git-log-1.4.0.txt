@@ -1,0 +1,47 @@
+commit 9f2c1a7e4b3d5c6a7b8c9d0e1f2a3b4c5d6e7f80
+Author: Ana Ruiz <ana@example.com>
+Date:   Mon Oct 19 10:12:03 2026 -0500
+
+    feat(export): add --format csv to the export command (#142)
+
+commit 8e1b0c6d3a2c4b5a6978877665544332211a0b9c
+Author: Raj Patel <raj@example.com>
+Date:   Fri Oct 16 15:40:11 2026 -0500
+
+    fix(sync): retry once when the server returns 503 (#140)
+
+commit 7d0a9b5c2f1b3a4958677665544332211a0b9c8d
+Author: Lee Chen <lee@example.com>
+Date:   Thu Oct 15 09:05:27 2026 -0500
+
+    chore: bump version in package metadata
+
+commit 6c9f8a4b1e0a29384756675544332211a0b9c8d7
+Author: Ana Ruiz <ana@example.com>
+Date:   Wed Oct 14 11:22:45 2026 -0500
+
+    feat: show progress bar for uploads over 10 MB (#138)
+
+commit 5b8e7f3a0d9f18273645564433221100a9b8c7d6
+Author: Sam Okafor <sam@example.com>
+Date:   Tue Oct 13 17:31:09 2026 -0500
+
+    fix: config file path with spaces is no longer split (#137)
+
+commit 4a7d6e2f9c8e07162534453322110099a8b7c6d5
+Author: Lee Chen <lee@example.com>
+Date:   Mon Oct 12 08:48:52 2026 -0500
+
+    ci: cache pip downloads in the test workflow
+
+commit 3f6c5d1e8b7d96051423342211009988a7b6c5d4
+Author: Raj Patel <raj@example.com>
+Date:   Fri Oct  9 14:02:36 2026 -0500
+
+    docs(readme): document the export command (#135)
+
+commit 2e5b4c0d7a6c85940312231100998877a6b5c4d3
+Author: Sam Okafor <sam@example.com>
+Date:   Thu Oct  8 10:19:58 2026 -0500
+
+    perf(index): build the search index in one pass (#134)

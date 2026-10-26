@@ -1,0 +1,63 @@
+commit f1e2d3c4b5a69788796a5b4c3d2e1f0a9b8c7d6e
+Author: Ana Ruiz <ana@example.com>
+Date:   Thu Oct 22 16:20:00 2026 -0500
+
+    Revert "feat(api): add bulk delete endpoint (#151)"
+
+    This reverts commit c0ffee12aa34bb56cc78dd90ee12ff3456789abc.
+
+commit e0d1c2b3a4958677a6b5c4d3e2f1a0b9c8d7e6f5
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed Oct 21 03:14:15 2026 +0000
+
+    chore(deps): bump requests from 2.32.3 to 2.32.4 (#153)
+
+commit d9c0b1a2f3e4d5c6b7a8f9e0d1c2b3a4f5e6d7c8
+Merge: a1b2c3d e4f5a6b
+Author: Raj Patel <raj@example.com>
+Date:   Tue Oct 20 12:00:00 2026 -0500
+
+    Merge pull request #152 from Kinvecta/raj/config-v2
+
+commit b8a9f0e1d2c3b4a5968778695a4b3c2d1e0f9a8b
+Author: Raj Patel <raj@example.com>
+Date:   Tue Oct 20 11:58:41 2026 -0500
+
+    feat(config): read settings from tidy.toml (#152)
+
+    * feat: add toml loader
+    * fix: typo in loader
+    * test: cover missing file
+
+    BREAKING CHANGE: tidy.ini is no longer read. Rename it to tidy.toml and
+    run `tidy config migrate` once.
+
+commit c0ffee12aa34bb56cc78dd90ee12ff3456789abc
+Author: Lee Chen <lee@example.com>
+Date:   Mon Oct 19 09:30:12 2026 -0500
+
+    feat(api): add bulk delete endpoint (#151)
+
+commit a7b8c9d0e1f2a3b4c5d6e7f8091a2b3c4d5e6f70
+Author: Sam Okafor <sam@example.com>
+Date:   Fri Oct 16 13:45:00 2026 -0500
+
+    fix(cli): exit code is 1, not 0, when a file is missing (#149)
+
+commit 96a7b8c9d0e1f2a3b4c5d6e7f8091a2b3c4d5e6f
+Author: Lee Chen <lee@example.com>
+Date:   Thu Oct 15 10:10:10 2026 -0500
+
+    feat(api add pagination to list endpoint (#148)
+
+commit 8596a7b8c9d0e1f2a3b4c5d6e7f8091a2b3c4d5e
+Author: renovate[bot] <bot@renovateapp.com>
+Date:   Wed Oct 14 04:00:00 2026 +0000
+
+    chore(deps): update actions/checkout to v7
+
+commit 748596a7b8c9d0e1f2a3b4c5d6e7f8091a2b3c4d
+Author: Ana Ruiz <ana@example.com>
+Date:   Tue Oct 13 15:15:15 2026 -0500
+
+    fix!: drop support for Python 3.9 (#146)

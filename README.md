@@ -37,6 +37,7 @@
 - [quickstart](#quickstart)
 - [how skills work](#how-skills-work)
 - [write your own](#write-your-own)
+  - [poor, good, great](#poor-good-great)
   - [validate](#validate)
 - [install safely](#install-safely)
 - [video](#video)
@@ -86,6 +87,10 @@ Is "build skills, not agents" true? The claim checked against the sources, plus 
 
 [Watch on YouTube](https://youtu.be/hmE25ADu-AY) · [the research](#the-research)
 
+Then: what makes a skill poor, good or great, and the approaches people copy.
+
+[Watch part 2](https://youtu.be/6jsMh0dfNe8) · [the rubric](docs/skill-quality.md)
+
 </td>
 <td width="33%" valign="top">
 
@@ -112,7 +117,9 @@ Four rules drawn from Anthropic's authoring guide, a validator, and the install 
 
 | **skill** | **what it does** | **files** | **tests** |
 |---|---|---|---|
-| **[status-report](skills/status-report/)** | Drafts the monthly project status report from a tracker CSV. A script does the counting; the model writes the summary; a checklist makes the totals and dates match before it answers. | [![SKILL.md](https://img.shields.io/badge/read-SKILL.md-FFC400)](skills/status-report/SKILL.md) [![script](https://img.shields.io/badge/script-totals.py-blue)](skills/status-report/scripts/totals.py) [![template](https://img.shields.io/badge/template-report.md-lightgrey)](skills/status-report/templates/report.md) | [![evals](https://img.shields.io/badge/open-evals-orange)](evals/status-report/evals.md) [![pytest](https://img.shields.io/badge/pytest-5%20script%20tests-green)](evals/status-report/test_totals.py) |
+| **[status-report](skills/status-report/)** | Drafts the monthly project status report from a tracker CSV. A script does the counting; the model writes the summary; a checklist makes the totals and dates match before it answers. | [![SKILL.md](https://img.shields.io/badge/read-SKILL.md-FFC400)](skills/status-report/SKILL.md) [![script](https://img.shields.io/badge/script-totals.py-blue)](skills/status-report/scripts/totals.py) [![template](https://img.shields.io/badge/template-report.md-lightgrey)](skills/status-report/templates/report.md) | [![evals](https://img.shields.io/badge/open-evals-orange)](evals/status-report/evals.md) [![triggers](https://img.shields.io/badge/open-triggers-orange)](evals/status-report/triggers.md) [![pytest](https://img.shields.io/badge/pytest-5%20script%20tests-green)](evals/status-report/test_totals.py) |
+| **[release-notes](skills/release-notes/)** | Drafts release notes for a version from a git log export. A script groups the commits and drops the noise; gotchas cover reverts, squash merges, breaking-change footers and bots; a checklist ties every entry to the script's output. | [![SKILL.md](https://img.shields.io/badge/read-SKILL.md-FFC400)](skills/release-notes/SKILL.md) [![script](https://img.shields.io/badge/script-group__changes.py-blue)](skills/release-notes/scripts/group_changes.py) [![template](https://img.shields.io/badge/template-notes.md-lightgrey)](skills/release-notes/templates/notes.md) | [![evals](https://img.shields.io/badge/open-evals-orange)](evals/release-notes/evals.md) [![triggers](https://img.shields.io/badge/open-triggers-orange)](evals/release-notes/triggers.md) [![pytest](https://img.shields.io/badge/pytest-13%20script%20tests-green)](evals/release-notes/test_group_changes.py) |
+| **[skill-review](skills/skill-review/)** | Reviews any skill folder against the [poor, good, great rubric](docs/skill-quality.md). A linter does the mechanical checks and a score out of 10; the model judges the gotchas and scope and names the top 3 fixes. It reports, and edits only when asked. | [![SKILL.md](https://img.shields.io/badge/read-SKILL.md-FFC400)](skills/skill-review/SKILL.md) [![script](https://img.shields.io/badge/script-lint__skill.py-blue)](skills/skill-review/scripts/lint_skill.py) [![template](https://img.shields.io/badge/template-review.md-lightgrey)](skills/skill-review/templates/review.md) | [![evals](https://img.shields.io/badge/open-evals-orange)](evals/skill-review/evals.md) [![triggers](https://img.shields.io/badge/open-triggers-orange)](evals/skill-review/triggers.md) [![pytest](https://img.shields.io/badge/pytest-13%20linter%20tests-green)](evals/skill-review/test_lint_skill.py) |
 
 More skills will be added as examples for future videos.
 
@@ -160,14 +167,24 @@ python3 skills/status-report/scripts/totals.py evals/status-report/tracker-2026-
 
 The description matches, `SKILL.md` loads, the script counts, the template gets filled, and the checklist compares every number with the script's output.
 
-**3. Test it like Anthropic recommends.** Run the three prompts in [`evals.md`](evals/status-report/evals.md) once **without** the skill and once **with** it, and write down which checks pass. The third prompt is the tricky one: a status with a trailing space and a date in the wrong format.
+**3. Test it like Anthropic recommends.** Run the three prompts in [`evals.md`](evals/status-report/evals.md) once **without** the skill and once **with** it, each in a new session. The third prompt is the tricky one: a status with a trailing space and a date in the wrong format. Record each check in a copy of the skill's results sheet, then score it:
+
+```bash
+mkdir -p evals/status-report/results
+cp evals/status-report/results-template.csv evals/status-report/results/my-run.csv
+# fill in result (1/0) and evidence for each check, and the trigger runs from triggers.md
+python3 tools/eval_report.py evals/status-report/results/my-run.csv
+# pass rate without vs with the skill, which checks the skill fixes, which trigger queries failed
+```
+
+The full eval steps (setup, grading with evidence, trigger tests, what to do with the result) are in [`evals/README.md`](evals/README.md).
 
 **4. Run the automated tests:**
 
 ```bash
 python3 -m pip install pytest
 python3 -m pytest -q evals tools
-# 10 passed (5 script tests + 5 validator tests)
+# 43 passed (31 skill script tests + 12 tool tests)
 ```
 
 ## how skills work
@@ -209,7 +226,7 @@ Three ways to start: write `SKILL.md` by hand, describe the job and let your age
 | **1 · The description says what and when** | Third person, with the words people type: *"Drafts the monthly project status report... Use when the user asks for a status report."* |
 | **2 · Keep SKILL.md short** | Under 500 lines, only what the model doesn't already know. Put detail in files one level deep. |
 | **3 · Fragile steps get code** | Totals, payments, deletions: give an exact script, not a suggestion. |
-| **4 · Test first** | Run the task without the skill, note where it fails, then write just enough to fix that. At least three test cases. |
+| **4 · Test first** | Run the task without the skill, note where it fails, then write just enough to fix that. At least three test cases, plus trigger queries. Steps and a scorer: [`evals/README.md`](evals/README.md). |
 
 Use [`skills/status-report/`](skills/status-report/) as a template:
 
@@ -221,14 +238,32 @@ your-skill/
 └── references/         detail the agent reads only when a step needs it
 ```
 
+### poor, good, great
+
+[`examples/poor-good-great/`](examples/poor-good-great/) has the same `release-notes` skill written three ways, with a walk-through of what changes at each level and the source for each point:
+
+| **level** | **what it has** | **lint score** |
+|---|---|---|
+| [poor](examples/poor-good-great/release-notes/poor/SKILL.md) | `description: Writes release notes.` and one line of body. It never fires, and adds nothing if it does. | 2.0 / 10 |
+| [good](examples/poor-good-great/release-notes/good/SKILL.md) | What and when in the description, short steps, a script for the grouping, a check step | 6.5 / 10 |
+| [great](examples/poor-good-great/release-notes/great/SKILL.md) | Plus gotchas from real failures, a "Not for" boundary, a full checklist, and evals with near-miss trigger tests | 9.0 / 10 (10 as installed) |
+
+The full rubric, with a source for every row, is in [`docs/skill-quality.md`](docs/skill-quality.md). To grade your own skill:
+
+```bash
+python3 skills/skill-review/scripts/lint_skill.py path/to/your-skill
+```
+
 ### validate
 
 `tools/validate_skills.py` checks every skill against the [Agent Skills specification](https://agentskills.io/specification) and some safety rules. It uses only the Python standard library and runs on every push.
 
 ```bash
 python3 tools/validate_skills.py
+# ok    release-notes
+# ok    skill-review
 # ok    status-report
-# 1 skill(s), 0 error(s)
+# 3 skill(s), 0 error(s)
 ```
 
 It fails a skill when:
@@ -239,7 +274,7 @@ It fails a skill when:
 - `SKILL.md` mentions a `scripts/`, `references/`, `templates/` or `assets/` file that doesn't exist
 - any file pipes a download into a shell, decodes base64 at run time, contains an absolute local path or looks like it holds a secret
 
-It also warns when a description doesn't say when to use the skill.
+It also warns when a description doesn't say when to use the skill. It checks only `skills/`; the folders in `examples/` are for reading, not installing.
 
 ## install safely
 
@@ -276,6 +311,14 @@ If an agent edits a skill, a person reviews the change before it's used again. M
 <p>Is it true that Anthropic's engineers stopped building agents? Mostly, but the headline goes too far. The claim checked against the sources; the <code>status-report</code> skill built from scratch; how skills load; four rules for writing one; what SkillsBench measured; and why every skill should be treated like code.</p>
 </td>
 </tr>
+<tr>
+<td width="40%"><a href="https://youtu.be/6jsMh0dfNe8"><img src="docs/assets/video-2-thumbnail.jpg" width="100%" alt="Watch: AI Agent Skills: What Makes One Actually Work"></a></td>
+<td width="60%" valign="top">
+<b><a href="https://youtu.be/6jsMh0dfNe8">AI Agent Skills: What Makes One Actually Work</a></b><br>
+<sub><b>Published:</b> 25 Oct 2026 · <b>Length:</b> 9:40 · <a href="https://www.youtube.com/playlist?list=PLZ1VbKY-g_Ok">Explainers playlist&nbsp;→</a></sub>
+<p>Of 49 public software-engineering skills, 39 changed nothing. Why most skills never fire, say too much or go unchecked; what good skills fix; what great ones add (gotchas, boundaries, tests); and the same <code>release-notes</code> skill at all three levels. Uses the <a href="docs/skill-quality.md">rubric</a>, the <a href="examples/poor-good-great/">examples</a> and the <code>skill-review</code> skill.</p>
+</td>
+</tr>
 </table>
 
 Related Kinvecta material: [The Memory Layer](https://github.com/Kinvecta/the-memory-layer) (its brain is run by five skills: ingest, query, lint, reflect and remember) and [Part 2: The operating manual](https://youtu.be/rMirmmTu3VM) (when a rule belongs in `AGENTS.md` and when it belongs in a skill).
@@ -290,6 +333,17 @@ Related Kinvecta material: [The Memory Layer](https://github.com/Kinvecta/the-me
 | Claude Platform Docs | Skill authoring best practices | [![docs](https://img.shields.io/badge/read-guide-blue)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) |
 | Li et al., SkillsBench (v4, June 2026) | Human-curated skills raised the average pass rate from 33.9% to 50.5% across 87 tasks; self-generated skills scored below no skills; compact skills beat comprehensive manuals | [![arXiv 2602.12670](https://img.shields.io/badge/arXiv-2602.12670-B31B1B)](https://arxiv.org/abs/2602.12670) |
 | Snyk, ToxicSkills, Feb 2026 (security-vendor research) | 3,984 public skills: 36.8% with a security flaw, 76 confirmed malicious | [![report](https://img.shields.io/badge/read-report-4C4A73)](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/) |
+| agentskills.io, Best practices for skill creators (open-standard docs) | Gotchas are "the highest-value content in many skills"; defaults, not menus; "Would the agent get this wrong without this instruction?" | [![guide](https://img.shields.io/badge/read-guide-FFC400)](https://agentskills.io/skill-creation/best-practices) |
+| Anthropic, Improving skill-creator, Mar 2026 (vendor) | Paired evals and description tuning (triggering improved on 5 of 6 public skills); "The skill isn't broken; it's just no longer necessary" (said mainly of capability-uplift skills) | [![post](https://img.shields.io/badge/read-post-D97757)](https://claude.com/blog/improving-skill-creator-test-measure-and-refine-agent-skills) |
+| Gao (Vercel), Jan 2026 (vendor eval, one suite) | The skill was never invoked in 56% of eval cases and scored the same as no skill (53%); an AGENTS.md docs index scored 100% | [![post](https://img.shields.io/badge/read-post-000000)](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals) |
+| Han et al., SWE-Skills-Bench (preprint, Mar 2026) | Of 49 public software-engineering skills, 39 changed the pass rate by zero; 7 helped, 3 hurt; mean +1.2% | [![arXiv 2603.15401](https://img.shields.io/badge/arXiv-2603.15401-B31B1B)](https://arxiv.org/abs/2603.15401) |
+| Hong et al., From Anatomy to Smells (preprint, Jul 2026) | An LLM-based detector, checked against 53 hand-labelled files, ran over 238 SKILL.md files: over 99% have at least one smell; 81% bury their gotchas; 69% have no validation step | [![arXiv 2607.01456](https://img.shields.io/badge/arXiv-2607.01456-B31B1B)](https://arxiv.org/abs/2607.01456) |
+| Zhang et al., What Keeps Agent Skills from Being Reusable? (preprint, Aug 2026) | 138,133 public skills: 52.3% lack trigger guidance; over 500 lines averages 4.76 defects vs 1.48 under 50 | [![arXiv 2608.08453](https://img.shields.io/badge/arXiv-2608.08453-B31B1B)](https://arxiv.org/abs/2608.08453) |
+| Cheng et al., Agent Skills' Downstream Utility (preprint, Oct 2026) | The same skill helped one model and harness and hurt another on 36.78% of 87 SkillsBench tasks | [![arXiv 2610.08875](https://img.shields.io/badge/arXiv-2610.08875-B31B1B)](https://arxiv.org/abs/2610.08875) |
+| Yan et al., One Skill Too Many (preprint, Oct 2026) | A similar co-installed skill takes about 1 in 5 runs, and the reply names the substitute in 0.9% of them | [![arXiv 2610.11647](https://img.shields.io/badge/arXiv-2610.11647-B31B1B)](https://arxiv.org/abs/2610.11647) |
+| Liu et al., Lost in Implicit Routing (preprint, Oct 2026) | Recall of the right skill fell from 73.6% to 27.4% as unrelated installed skills grew from 0 to 1,000 | [![arXiv 2610.18522](https://img.shields.io/badge/arXiv-2610.18522-B31B1B)](https://arxiv.org/abs/2610.18522) |
+
+The rubric built from these sources is in [`docs/skill-quality.md`](docs/skill-quality.md).
 
 ## FAQ
 
@@ -343,9 +397,10 @@ Please don't post secrets, private data or anyone's personal information. Posts 
 | Folder | What it is |
 |---|---|
 | [`skills/`](skills/) | **Installable skills.** Each folder is one skill: `SKILL.md` plus its scripts, templates and references. |
-| [`evals/`](evals/) | **Tests for each skill**: prompts to run with and without the skill, sample data, and pytest tests for the scripts. Not installed with the skill. |
-| [`tools/`](tools/) | **`validate_skills.py`**: format and safety checks for every skill, with its own tests. |
-| [`docs/`](docs/) | README images and animations. |
+| [`evals/`](evals/) | **Tests for each skill**: [step-by-step guide](evals/README.md), prompts to run with and without the skill, trigger queries (should and near-miss), a results sheet to fill in, sample data, and pytest tests for the scripts. Not installed with the skill. |
+| [`examples/`](examples/) | **Examples for reading, not installing.** [`poor-good-great/`](examples/poor-good-great/) has the `release-notes` skill at three levels, with a sourced walk-through. Not checked by the validator. |
+| [`tools/`](tools/) | **`validate_skills.py`**: format and safety checks for every skill. **`eval_report.py`**: scores a filled results sheet (with vs without the skill, per check, trigger tests). Both have their own tests. |
+| [`docs/`](docs/) | [`skill-quality.md`](docs/skill-quality.md) (the poor, good, great rubric with sources), plus README images and animations. |
 
 ## maintenance and security
 
@@ -360,7 +415,7 @@ Automated checks run on GitHub Actions: the skill validator, tests on Python 3.1
 ## notes
 
 - Product names are examples, not endorsements.
-- No secrets, personal data or audio/video files are stored in this repository. The sample tracker data is made up.
+- No secrets, personal data or audio/video files are stored in this repository. The sample tracker data and git logs are made up.
 
 ## license
 
