@@ -1,0 +1,71 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,1,Header says 1.4.0,pass,1,## 1.4.0 (2026-10-25)
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,1,"Features: CSV export (#142), upload progress bar (#138)",pass,1,- The `export` command can now write CSV: use `--format csv`. (#142) - Uploads over 10 MB now show a progress bar. (#138)
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,1,"Fixes: 503 retry (#140), config path with spaces (#137)",pass,1,Sync now retries once when the server returns a 503 (Service Unavailable) error instead of failing right away. (#140)
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,1,"Other: docs (#135), search index (#134)",pass,1,- The README now documents the `export` command. (#135) - The search index is now built in a single pass. (#134)
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,1,No chore or ci commits listed,pass,0,"[downgraded: quote not found in reply/transcript] The notes file has no entries for the version bump or CI cache commits; sections are ""### Features ... ### Fixes ... ### Other changes ... ### Contributors""."
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,1,"Contributors: Ana Ruiz, Raj Patel, Sam Okafor",pass,1,"### Contributors Ana Ruiz, Raj Patel, Sam Okafor"
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,1,No breaking section,pass,0,"[downgraded: quote not found in reply/transcript] Sections in file: ""### Features ... ### Fixes ... ### Other changes ... ### Contributors"" with no Breaking changes heading."
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,2,Header says 1.4.0,pass,1,## 1.4.0 (2026-10-25)
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,2,"Features: CSV export (#142), upload progress bar (#138)",pass,1,- **CSV export:** `export` now accepts `--format csv`. (#142) - **Upload progress:** uploads larger than 10 MB now show a progress bar. (#138)
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,2,"Fixes: 503 retry (#140), config path with spaces (#137)",pass,1,"if the server returns a 503 (Service Unavailable), sync now retries once before failing. (#140) ... config file paths that contain spaces are no longer split into separate arguments. (#137)"
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,2,"Other: docs (#135), search index (#134)",pass,1,- **Performance:** the search index is now built in a single pass. (#134) - **Docs:** the README now documents the `export` command. (#135)
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,2,No chore or ci commits listed,pass,1,### Features ... ### Fixes ... ### Other changes ... ### Contributors
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,2,"Contributors: Ana Ruiz, Raj Patel, Sam Okafor",pass,1,"Ana Ruiz, Raj Patel, Sam Okafor"
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,1,2,No breaking section,pass,1,### Features ... ### Fixes ... ### Other changes ... ### Contributors
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,1,Breaking changes come first,pass,1,## ⚠️ Breaking changes - **Python 3.9 is no longer supported.**
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,1,"tidy.toml (#152) has the migration step (rename tidy.ini, run tidy config migrate)",pass,1,"To upgrade, rename your config file to `tidy.toml`, then run this once: ```sh tidy config migrate"
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,1,Python 3.9 drop (#146) comes with a question asking for its migration note,pass,0,**Python 3.9 is no longer supported.** You need Python 3.10 or newer. (#146) — it invented a note and asked no question.
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,1,Reverted bulk delete endpoint (#151) is not listed,pass,1,"**Bulk delete endpoint (#151) is left out.** It was added on Oct 19 and reverted on Oct 22, so it isn't in this release."
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,1,Squash-body bullets are not separate entries,pass,1,"Its sub-items (""fix typo in loader"", ""cover missing file"") are internal, so I left them out."
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,1,dependabot and renovate are not credited,pass,1,- Bumped `requests` from 2.32.3 to 2.32.4. (#153)
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,1,Malformed 'feat(api add pagination' line is raised as a question,pass,0,It's clearly a feature. — the agent guessed and included it as a feature instead of asking a question.
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,1,Header says 2.0.0,pass,1,# tidy v2.0.0
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,2,Breaking changes come first,pass,1,## ⚠️ Breaking changes - **Config now comes from `tidy.toml`.**
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,2,"tidy.toml (#152) has the migration step (rename tidy.ini, run tidy config migrate)",pass,1,"Rename your config file to `tidy.toml`, then run `tidy config migrate` once. (#152)"
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,2,Python 3.9 drop (#146) comes with a question asking for its migration note,pass,0,"**Python versions:** The log doesn't say which Python version is now the minimum. I wrote ""not 3.9""; replace that with the real minimum"
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,2,Reverted bulk delete endpoint (#151) is not listed,pass,1,"**Bulk delete endpoint (#151):** It was added and then reverted, so it isn't in this release."
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,2,Squash-body bullets are not separate entries,pass,1,"The sub-bullets in that commit (""fix typo"", ""cover missing file"") are internal work."
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,2,dependabot and renovate are not credited,pass,0,"Dependencies section lists ""Updated `requests` from 2.32.3 to 2.32.4. (#153)"" which is the dependabot change"
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,2,Malformed 'feat(api add pagination' line is raised as a question,pass,1,"**#148:** The commit subject is malformed (`feat(api add…`). I read it as a feature for the API, but check what changes for API clients."
+output,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,3,2,Header says 2.0.0,pass,1,# tidy v2.0.0
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N1,1,Write a blog post announcing v2 to our customers,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N1,2,Write a blog post announcing v2 to our customers,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N2,1,Summarize this PR for the reviewer,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N2,2,Summarize this PR for the reviewer,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N3,1,Write a security advisory for the auth bypass fixed in 1.4.1,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N3,2,Write a security advisory for the auth bypass fixed in 1.4.1,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N4,1,Write a commit message for my staged changes,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N4,2,Write a commit message for my staged changes,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N5,1,"Which version should this be, a minor or a patch? (versioning question, no notes)",no-fire,1,"TOOL Read {""file_path"": ""/home/dev/project/.claude/skills/release-notes/SKILL.md""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N5,2,"Which version should this be, a minor or a patch? (versioning question, no notes)",no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N6,1,Bump the version in package.json to 1.5.0,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N6,2,Bump the version in package.json to 1.5.0,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N7,1,Explain what changed in this diff,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N7,2,Explain what changed in this diff,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N8,1,Write a tweet about our new release,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N8,2,Write a tweet about our new release,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N9,1,Draft the monthly status report from the tracker CSV,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N9,2,Draft the monthly status report from the tracker CSV,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N10,1,Set up semantic-release so the changelog is generated in CI,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,N10,2,Set up semantic-release so the changelog is generated in CI,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S1,1,Write the release notes for v1.4.0 from changes.txt,fire,1,"TOOL Skill {""args"": ""v1.4.0 from changes.txt"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S1,2,Write the release notes for v1.4.0 from changes.txt,fire,1,"TOOL Skill {""args"": ""v1.4.0 from changes.txt"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S2,1,"can you draft a changelog entry for 2.0.0, git log is pasted below",fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S2,2,"can you draft a changelog entry for 2.0.0, git log is pasted below",fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S3,1,What's new in 3.1? Here are the merged PRs since the last tag,fire,1,"TOOL Skill {""args"": ""3.1"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S3,2,What's new in 3.1? Here are the merged PRs since the last tag,fire,1,"TOOL Skill {""args"": ""3.1"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S4,1,"We're bumping the version to 1.5.0 tonight, I need the notes for the GitHub release",fire,1,"TOOL Skill {""args"": ""version 1.5.0, GitHub release"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S4,2,"We're bumping the version to 1.5.0 tonight, I need the notes for the GitHub release",fire,1,"TOOL Skill {""args"": ""1.5.0"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S5,1,Turn this git log into release notes,fire,1,"TOOL Skill {""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S5,2,Turn this git log into release notes,fire,1,"TOOL Skill {""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S6,1,Summarize the commits between v2.3.0 and v2.4.0 for the releases page,fire,1,"TOOL Skill {""args"": ""Summarize the commits between v2.3.0 and v2.4.0 for the releases page"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S6,2,Summarize the commits between v2.3.0 and v2.4.0 for the releases page,fire,1,"TOOL Skill {""args"": ""Summarize the commits between v2.3.0 and v2.4.0 for the releases page"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S7,1,update CHANGELOG.md for the 0.9.0 release using these commits,fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S7,2,update CHANGELOG.md for the 0.9.0 release using these commits,fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S8,1,"I tagged v1.0.0, what should the release say?",fire,1,"TOOL Skill {""args"": ""v1.0.0"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S8,2,"I tagged v1.0.0, what should the release say?",fire,1,"TOOL Skill {""args"": ""v1.0.0"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S9,1,Draft patch notes for 1.2.1 from this list of fixes,fire,1,"TOOL Skill {""args"": ""Draft patch notes for 1.2.1 from this list of fixes"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S9,2,Draft patch notes for 1.2.1 from this list of fixes,fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S10,1,"here's `git log v4.1.0..v4.2.0`, write it up for users",fire,1,"TOOL Skill {""args"": ""v4.1.0..v4.2.0"", ""skill"": ""release-notes""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310 / release-notes:poor,with,S10,2,"here's `git log v4.1.0..v4.2.0`, write it up for users",fire,1,"TOOL Skill {""args"": ""v4.1.0..v4.2.0"", ""skill"": ""release-notes""}"

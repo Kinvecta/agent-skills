@@ -1,0 +1,10 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,'Done ' (trailing space) counts as done,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,"The bad date 10/31/2026 is flagged, not guessed",pass,1,"the due date is `10/31/2026`, which isn't in `YYYY-MM-DD` form. ... So it isn't listed under ""Due this month"" or ""Due next month."""
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,'Done ' (trailing space) counts as done,pass,1,"Ana's row says ""Done "" with a space at the end, and the script still counted it as done."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,"The bad date 10/31/2026 is flagged, not guessed",pass,1,"Line 3 of the tracker has a due date of `10/31/2026`, which the script can't read. ... Is the due date 2026-10-31? I didn't assume that."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,3,'Done ' (trailing space) counts as done,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 | ... The vendor contract renewal is done
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,3,"The bad date 10/31/2026 is flagged, not guessed",pass,1,"the due date is `10/31/2026`, which isn't in `YYYY-MM-DD` form. ... I didn't guess at it."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,3,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |

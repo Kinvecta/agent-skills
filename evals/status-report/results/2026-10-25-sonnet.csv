@@ -1,0 +1,105 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,1,Totals: 2 done / 2 in progress / 1 at risk / 1 blocked / 1 not started / 7 total,pass,1,"7 tasks tracked: 2 done, 2 in progress, 1 at risk, 1 blocked, 1 not started."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,1,"Due this month, not done: Security scan of new skills (Raj)",pass,1,| Security scan of new skills | Raj | At risk | 2026-10-20 | 5 days overdue |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,1,"Due this month, not done: Q4 training rollout (Lee)",pass,0,"Q4 training rollout appears only under ""In Progress"" and ""Upcoming (next 2 weeks)"" with ""| Q4 training rollout | Lee | 2026-10-31 |""; it is not presented as due this month and not done."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,1,"Due this month, not done: Migrate wiki to new host (Sam)",pass,1,| Migrate wiki to new host | Sam | Blocked | 2026-10-15 | 10 days overdue; blocker not recorded in tracker |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,1,Every date is YYYY-MM-DD,pass,1,| Vendor contract renewal | Ana | 2026-10-03 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,2,Totals: 2 done / 2 in progress / 1 at risk / 1 blocked / 1 not started / 7 total,pass,1,"7 tasks tracked: 2 done, 2 in progress, 1 at risk, 1 blocked, 1 not started."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,2,"Due this month, not done: Security scan of new skills (Raj)",pass,1,"**Security scan of new skills** (Raj), **at risk**, due 2026-10-20. 5 days overdue."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,2,"Due this month, not done: Q4 training rollout (Lee)",pass,1,"**Q4 training rollout** (Lee), due 2026-10-31. Due in 6 days."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,2,"Due this month, not done: Migrate wiki to new host (Sam)",pass,1,"**Migrate wiki to new host** (Sam), **blocked**, due 2026-10-15. 10 days overdue."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,2,Every date is YYYY-MM-DD,pass,0,"Confirm Q4 training rollout is on track for 10-31. ... Ana to start the FY27 budget draft, due 11-12."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,1,The skill loaded from the description (prompt never says 'status report'),pass,0,status-report was not loaded (not installed in this config)
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,1,Same totals as case 1,pass,1,"**2 of 7 tasks are done**, 2 are in progress, and 1 hasn't started. ... | Migrate wiki to new host | Sam | Blocked | 10/15 | 10 days overdue. |"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,1,Due next month lists Budget draft for FY27 and Update onboarding guide,pass,0,"## Coming up - **Budget draft for FY27** (Ana), due 11/12. It hasn't started. (Update onboarding guide is listed only under In progress, not under Coming up)"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,2,The skill loaded from the description (prompt never says 'status report'),pass,0,status-report was not loaded (not installed in this config)
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,2,Same totals as case 1,pass,1,2 of 7 tasks are complete.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,2,Due next month lists Budget draft for FY27 and Update onboarding guide,pass,0,"Onboarding guide update appears under ""On track"" rather than ""Coming up"". The ""Coming up"" section lists only ""**FY27 budget draft** (Ana), not started, due Nov 12."""
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,3,1,'Done ' (trailing space) counts as done,pass,1,"3 tasks tracked: 1 done, 1 in progress, 1 at risk. ... | Vendor contract renewal | Ana | Done | 2026-10-03 |"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,3,1,"The bad date 10/31/2026 is flagged, not guessed",pass,0,"One due date was written `10/31/2026`, and I changed it to `2026-10-31` to match the others."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,3,1,Totals match the script's JSON,pass,1,"3 tasks tracked: 1 done, 1 in progress, 1 at risk."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,3,2,'Done ' (trailing space) counts as done,pass,1,1 of 3 tracked items is complete. ... | Vendor contract renewal | Ana | Done | Oct 3 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,3,2,"The bad date 10/31/2026 is flagged, not guessed",pass,0,"I normalized the ""Done "" status (it had a trailing space) and the 10/31/2026 date (the other rows use YYYY-MM-DD)."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,3,2,Totals match the script's JSON,pass,1,1 of 3 tracked items is complete. 2 are open and both are due October 31. One of those is at risk.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,1,Totals: 2 done / 2 in progress / 1 at risk / 1 blocked / 1 not started / 7 total,pass,1,| 2 | 2 | 1 | 1 | 1 | 7 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,1,"Due this month, not done: Security scan of new skills (Raj)",pass,1,"- Security scan of new skills — Raj, due 2026-10-20, at risk"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,1,"Due this month, not done: Q4 training rollout (Lee)",pass,1,"- Q4 training rollout — Lee, due 2026-10-31, in progress"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,1,"Due this month, not done: Migrate wiki to new host (Sam)",pass,1,"- Migrate wiki to new host — Sam, due 2026-10-15, blocked"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,1,Every date is YYYY-MM-DD,pass,0,"# Status report: 2026-10 ... The ""past due"" claim assumes today is 2026-10-25."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,2,Totals: 2 done / 2 in progress / 1 at risk / 1 blocked / 1 not started / 7 total,pass,1,| 2 | 2 | 1 | 1 | 1 | 7 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,2,"Due this month, not done: Security scan of new skills (Raj)",pass,1,"- Security scan of new skills, Raj, 2026-10-20, at risk"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,2,"Due this month, not done: Q4 training rollout (Lee)",pass,1,"- Q4 training rollout, Lee, 2026-10-31, in progress"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,2,"Due this month, not done: Migrate wiki to new host (Sam)",pass,1,"- Migrate wiki to new host, Sam, 2026-10-15, blocked"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,2,Every date is YYYY-MM-DD,pass,0,"The month header ""# Status report: 2026-10"" is in YYYY-MM form, not YYYY-MM-DD. The task dates are all in full format."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,1,The skill loaded from the description (prompt never says 'status report'),pass,1,"TOOL Skill {""args"": ""2026-10"", ""skill"": ""status-report""}"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,1,Same totals as case 1,pass,1,| 2 | 2 | 1 | 1 | 1 | 7 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,1,Due next month lists Budget draft for FY27 and Update onboarding guide,pass,1,"- Update onboarding guide: Lee, due 2026-11-05 - Budget draft for FY27: Ana, due 2026-11-12"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,2,The skill loaded from the description (prompt never says 'status report'),pass,1,"TOOL Skill {""args"": ""2026-10"", ""skill"": ""status-report""}"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,2,Same totals as case 1,pass,1,| 2 | 2 | 1 | 1 | 1 | 7 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,2,Due next month lists Budget draft for FY27 and Update onboarding guide,pass,1,"- Update onboarding guide. Lee, due 2026-11-05 - Budget draft for FY27. Ana, due 2026-11-12"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,1,'Done ' (trailing space) counts as done,pass,1,"The ""Done "" status on the vendor contract row has a trailing space. The script counted it correctly. ... | 1 | 1 | 1 | 0 | 0 | 3 |"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,1,"The bad date 10/31/2026 is flagged, not guessed",pass,0,I read it as 2026-10-31 and added the task by hand.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,1,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,2,'Done ' (trailing space) counts as done,pass,1,| Done | In progress | At risk | Blocked | Not started | Total | |---|---|---|---|---|---| | 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,2,"The bad date 10/31/2026 is flagged, not guessed",pass,1,"Security scan of new skills, Raj, due date unconfirmed (tracker has ""10/31/2026""), at risk ... The date is probably 2026-10-31, but I haven't changed it."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,2,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N1,1,Draft the release notes for v1.4.0,no-fire,0,not loaded; loaded instead: release-notes
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N1,2,Draft the release notes for v1.4.0,no-fire,0,not loaded; loaded instead: release-notes
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N1,3,Draft the release notes for v1.4.0,no-fire,0,not loaded; loaded instead: release-notes
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N2,1,Write my weekly 1:1 notes for my manager,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N2,2,Write my weekly 1:1 notes for my manager,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N2,3,Write my weekly 1:1 notes for my manager,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N3,1,Clean up this CSV: trim spaces and fix the date column,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N3,2,Clean up this CSV: trim spaces and fix the date column,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N3,3,Clean up this CSV: trim spaces and fix the date column,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N4,1,Make a chart of tasks by owner from tracker.csv,no-fire,0,not loaded; loaded instead: dataviz
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N4,2,Make a chart of tasks by owner from tracker.csv,no-fire,0,not loaded; loaded instead: dataviz
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N4,3,Make a chart of tasks by owner from tracker.csv,no-fire,0,not loaded; loaded instead: dataviz
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N5,1,What's the status of PR #142?,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N5,2,What's the status of PR #142?,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N5,3,What's the status of PR #142?,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N6,1,Write a project kickoff plan for the Q1 migration,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N6,2,Write a project kickoff plan for the Q1 migration,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N6,3,Write a project kickoff plan for the Q1 migration,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N7,1,Summarize this meeting transcript,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N7,2,Summarize this meeting transcript,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N7,3,Summarize this meeting transcript,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N8,1,Draft an incident report for yesterday's outage,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N8,2,Draft an incident report for yesterday's outage,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N8,3,Draft an incident report for yesterday's outage,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N9,1,Convert tracker.csv to Excel,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N9,2,Convert tracker.csv to Excel,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N9,3,Convert tracker.csv to Excel,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N10,1,Write a performance review for Sam,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N10,2,Write a performance review for Sam,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N10,3,Write a performance review for Sam,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S1,1,Draft the October status report from tracker-2026-10.csv,fire,1,"TOOL Skill {""args"": ""tracker-2026-10.csv"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S1,2,Draft the October status report from tracker-2026-10.csv,fire,1,"TOOL Skill {""args"": ""tracker-2026-10.csv"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S1,3,Draft the October status report from tracker-2026-10.csv,fire,1,"TOOL Skill {""args"": ""tracker-2026-10.csv"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S2,1,Give leadership a monthly update for 2026-10 from the tracker export,fire,1,"TOOL Skill {""args"": ""2026-10"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S2,2,Give leadership a monthly update for 2026-10 from the tracker export,fire,1,"TOOL Skill {""args"": ""2026-10"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S2,3,Give leadership a monthly update for 2026-10 from the tracker export,fire,1,"TOOL Skill {""args"": ""2026-10"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S3,1,"I need the project roll-up for this month, the CSV is attached",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S3,2,"I need the project roll-up for this month, the CSV is attached",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S3,3,"I need the project roll-up for this month, the CSV is attached",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S4,1,what's at risk and what's blocked this month? write it up for my director,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S4,2,what's at risk and what's blocked this month? write it up for my director,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S4,3,what's at risk and what's blocked this month? write it up for my director,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S5,1,Turn this tracker export into the one-page monthly report,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S5,2,Turn this tracker export into the one-page monthly report,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S5,3,Turn this tracker export into the one-page monthly report,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S6,1,"Monthly status update please, tracker.csv is in this folder",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S6,2,"Monthly status update please, tracker.csv is in this folder",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S6,3,"Monthly status update please, tracker.csv is in this folder",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S7,1,"Summarize the project tracker for the steering committee, month of September",fire,1,"TOOL Skill {""args"": ""September"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S7,2,"Summarize the project tracker for the steering committee, month of September",fire,1,"TOOL Skill {""args"": ""September steering committee summary"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S7,3,"Summarize the project tracker for the steering committee, month of September",fire,1,"TOOL Skill {""args"": ""September"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S8,1,Which tasks are due this month and not done? Put it in our report format,fire,1,"TOOL Skill {""args"": ""Tasks due this month (October 2026) that are not done"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S8,2,Which tasks are due this month and not done? Put it in our report format,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S8,3,Which tasks are due this month and not done? Put it in our report format,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S9,1,Write the status report for 2026-11,fire,1,"TOOL Skill {""args"": ""2026-11"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S9,2,Write the status report for 2026-11,fire,1,"TOOL Skill {""args"": ""2026-11"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S9,3,Write the status report for 2026-11,fire,1,"TOOL Skill {""args"": ""2026-11"", ""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S10,1,Can you do the usual monthly project update from the task list?,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S10,2,Can you do the usual monthly project update from the task list?,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S10,3,Can you do the usual monthly project update from the task list?,fire,1,"TOOL Skill {""skill"": ""status-report""}"

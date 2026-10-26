@@ -1,0 +1,10 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,1,'Done ' (trailing space) counts as done,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,1,"The bad date 10/31/2026 is flagged, not guessed",pass,0,"I read it as 2026-10-31 and added the task to the ""due this month"" list by hand."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,1,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,2,'Done ' (trailing space) counts as done,pass,1,"The tracker also has a trailing space in the first row's status (""Done ""). The script counted it as done anyway."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,2,"The bad date 10/31/2026 is flagged, not guessed",pass,1,"Line 3 of `tracker-tricky.csv` has the due date `10/31/2026` instead of `YYYY-MM-DD`. ... I didn't add it, because I don't want to guess at the date."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,2,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,3,'Done ' (trailing space) counts as done,pass,1,"The ""Done"" status on the vendor contract row had a trailing space, and the script still counted it as done."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,3,"The bad date 10/31/2026 is flagged, not guessed",pass,0,I read it as 2026-10-31 and added the task by hand.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,3,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |

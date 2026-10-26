@@ -1,0 +1,101 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,1,Reports the script's score 2.0/10 (poor) unchanged,pass,0,"The reply never states a score; it says only ""This skill wouldn't do much, which fits its spot in the `poor/` folder."" and has no 2.0/10."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,1,"Top fix is the description (no 'Use when', too short)",pass,0,"""**1. The description won't help Claude decide when to use the skill.**"" It never names the missing 'Use when' clause or the 21-character length as the issue, though its suggested rewrite does include ""Use when asked for release notes""."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,1,Names the missing check step and missing gotchas,pass,0,"No check-before-answer step is named. The nearest item is ""**5. No handling for edge cases.**"", and there is no Gotchas section in the problem list."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,1,Changes no file,pass,1,FILES CHANGED: none
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,2,Reports the script's score 2.0/10 (poor) unchanged,pass,0,"No score reported; the reply has no ""2.0/10"" or ""poor"" rating. It only says: ""As a \""poor\"" example it works""."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,2,"Top fix is the description (no 'Use when', too short)",pass,0,"""## 1. The description won't make the skill trigger"" ... ""**No \""when to use\"".** It says what the skill does but not when to reach for it."" The description is the top issue, but it never says the description is too short or lacks a ""Use when"" clause."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,2,Names the missing check step and missing gotchas,pass,0,"""## 4. No workflow or safety steps"" ... ""(gather → classify → draft → check)"" ... No Gotchas section is named as missing."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,2,Changes no file,pass,1,FILES CHANGED: none
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,1,Reports 7.5/10 (good),pass,0,"## Grade: **Good**, but not yet Great"
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,1,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,0,"No Gotchas section is suggested; fixes cover `problems`, script bugs, and input specifics, e.g. ""**1. Tell the skill what to do with `problems`.**"""
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,1,Suggests a 'Not for' line,pass,0,"It only notes the description has no ""not for charts or CSV cleanup"" boundary, which is a side remark, not one of the suggested fixes: ""it has no \""not for charts or CSV cleanup\"" boundary"""
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,1,Doesn't call the skill untested,pass,1,"| Evals | Good | It runs with and without the skill, has a tricky case, 10 should-trigger and 10 should-not-trigger near-misses"
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,2,Reports 7.5/10 (good),pass,0,"**Overall grade: Good, not Great.**"
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,2,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,0,"The reply's fixes cover `problems` output, overdue tasks, invented decisions, script path and month format. It has no Gotchas section suggestion."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,2,Suggests a 'Not for' line,pass,0,The reply's fixes and 'Also worth fixing' list contain no 'Not for' or 'Don't use' line.
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,2,Doesn't call the skill untested,pass,1,"It has a baseline vs. with-skill comparison, a tricky case, and 10 near-miss trigger tests."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,3,1,Says the gotchas are generic and asks for real failures,pass,1,"The gotchas are filler (""handle errors appropriately"", ""best practices""). They don't tell the model anything it wouldn't already do."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,3,1,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,1,"**Should I overwrite the fixture?** ... If it isn't meant to be a bad example, say so and I'll copy the fixed version over it."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,3,2,Says the gotchas are generic and asks for real failures,pass,0,"The gotchas said nothing useful."" ... ""I don't know what's actually wrong with the sales system's exports**, so the gotchas cover common CSV problems in general. The best next improvement would be listing that system's real issues"
+output,claude-opus-5-5 / Claude Code 2.1.310,without,3,2,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,0,I rewrote `evals/skill-review/fixtures/csv-cleanup/SKILL.md`.
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,1,Reports the script's score 2.0/10 (poor) unchanged,pass,1,"**Score:** 2.0/10 (poor), from `lint_skill.py`"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,1,"Top fix is the description (no 'Use when', too short)",pass,1,"1. **Add a ""Use when"" clause** (frontmatter `description`, line 3): Replace `Writes release notes.` with something like: `Drafts user-facing release notes from the commits and merged PRs between two tags. Use when the user asks"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,1,Names the missing check step and missing gotchas,pass,1,fail · verification · there is no check-before-you-answer step ... fail · gotchas · there is no Gotchas section
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,1,Changes no file,pass,1,I didn't change any files.
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,2,Reports the script's score 2.0/10 (poor) unchanged,pass,1,"**Score:** 2.0/10 (poor), from `lint_skill.py`"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,2,"Top fix is the description (no 'Use when', too short)",pass,1,1. **Add a real description with a when-clause** (`SKILL.md:3`): Replace it with something like:
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,2,Names the missing check step and missing gotchas,pass,1,"End with a ""Check before you answer"" list ... 3. **Add Gotchas and a Not-for line** (new sections)"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,2,Changes no file,pass,1,I didn't edit the skill. I can apply these fixes if you want.
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,1,Reports 7.5/10 (good),pass,1,"**Score:** 7.5/10 (good), from `lint_skill.py`"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,1,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,1,**Add a Gotchas section built from what the script actually does** (new section after Steps). Suggested text: ... A row with a bad date is counted in the totals but left out of every task list.
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,1,Suggests a 'Not for' line,pass,1,"Write: ""Not for: weekly 1:1 notes, release notes, incident reports, or charts and cleanup of the CSV. Answer those directly."""
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,1,Doesn't call the skill untested,pass,1,the evals include near-miss cases
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,2,Reports 7.5/10 (good),pass,1,"**Score:** 7.5/10 (good), from `lint_skill.py`"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,2,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,1,"`due_this_month_not_done` uses `due < end`, so it also includes overdue tasks from earlier months. Report them as overdue."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,2,Suggests a 'Not for' line,pass,1,"**Add a ""Not for"" line** (under `SKILL.md:8`; the linter fails it): *""Not for: weekly updates or 1:1 notes, release notes, incident reports, or charts and cleanup of the tracker. Handle those directly.""*"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,2,Doesn't call the skill untested,pass,1,`evals/status-report/triggers.md` has 10 near-miss cases that check it doesn't fire on the wrong ones.
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,Says the gotchas are generic and asks for real failures,pass,0,"[downgraded: quote not found in reply/transcript] **Gotchas:** all three are generic, e.g. ""Be careful with edge cases"" doesn't name a single one. ... I can edit the fixture itself, if you tell me the real quirks of the sales export (number format, footer rows, ID columns, encoding)."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,1,"I ran the linter and reviewed the skill, but I haven't edited anything. ... **What would you like?** I can:"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,Says the gotchas are generic and asks for real failures,pass,1,"**Replace the generic gotchas** (Gotchas, lines 12–14): all three items are advice the agent already follows. Write the real traps of the sales-system export instead."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,1,"**I didn't make the edits.** ... If you send me a sample export, or tell me which system it comes from and what the clean output should look like, I can write the improved skill, a cleaning script and evals."
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N1,1,Write a new skill that drafts invoices from our billing export,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N1,2,Write a new skill that drafts invoices from our billing export,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N1,3,Write a new skill that drafts invoices from our billing export,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N2,1,Review this pull request,no-fire,0,not loaded; loaded instead: code-review
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N2,2,Review this pull request,no-fire,0,not loaded; loaded instead: code-review
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N2,3,Review this pull request,no-fire,0,not loaded; loaded instead: code-review
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N3,1,Lint my Python code,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N3,2,Lint my Python code,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N3,3,Lint my Python code,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N4,1,Review my AGENTS.md,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N4,2,Review my AGENTS.md,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N4,3,Review my AGENTS.md,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N5,1,"Is this prompt any good? (a system prompt, not a skill)",no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N5,2,"Is this prompt any good? (a system prompt, not a skill)",no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N5,3,"Is this prompt any good? (a system prompt, not a skill)",no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N6,1,Scan this skill for malware before I install it,no-fire,1,"TOOL Read {""file_path"": ""/home/dev/project/.claude/skills/skill-review/SKILL.md""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N6,2,Scan this skill for malware before I install it,no-fire,1,"TOOL Read {""file_path"": ""/home/dev/project/.claude/skills/skill-review/SKILL.md""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N6,3,Scan this skill for malware before I install it,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N7,1,Install the release-notes skill into this project,no-fire,0,not loaded; loaded instead: release-notes
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N7,2,Install the release-notes skill into this project,no-fire,0,not loaded; loaded instead: release-notes
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N7,3,Install the release-notes skill into this project,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N8,1,Explain what an agent skill is,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N8,2,Explain what an agent skill is,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N8,3,Explain what an agent skill is,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N9,1,Review my resume and list the skills section problems,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N9,2,Review my resume and list the skills section problems,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N9,3,Review my resume and list the skills section problems,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N10,1,Grade these student essays against the rubric,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N10,2,Grade these student essays against the rubric,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N10,3,Grade these student essays against the rubric,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S1,1,Review this skill: .claude/skills/deploy-preview/,fire,1,"TOOL Skill {""args"": "".claude/skills/deploy-preview/"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S1,2,Review this skill: .claude/skills/deploy-preview/,fire,1,"TOOL Skill {""args"": "".claude/skills/deploy-preview/"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S1,3,Review this skill: .claude/skills/deploy-preview/,fire,1,"TOOL Skill {""args"": "".claude/skills/deploy-preview/"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S2,1,can you lint my SKILL.md before I push it,fire,1,"TOOL Skill {""args"": ""SKILL.md"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S2,2,can you lint my SKILL.md before I push it,fire,1,"TOOL Skill {""args"": ""SKILL.md in /home/dev/project"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S2,3,can you lint my SKILL.md before I push it,fire,1,"TOOL Skill {""args"": ""SKILL.md in /home/dev/project"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S3,1,"Grade the skills in this folder poor, good or great",fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S3,2,"Grade the skills in this folder poor, good or great",fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S3,3,"Grade the skills in this folder poor, good or great",fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S4,1,Why doesn't my pdf-forms skill ever load? Check the SKILL.md,fire,1,"TOOL Skill {""args"": ""pdf-forms skill — user reports it never loads; check its SKILL.md"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S4,2,Why doesn't my pdf-forms skill ever load? Check the SKILL.md,fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S4,3,Why doesn't my pdf-forms skill ever load? Check the SKILL.md,fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S5,1,Audit the skill I just wrote and tell me what to fix,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S5,2,Audit the skill I just wrote and tell me what to fix,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S5,3,Audit the skill I just wrote and tell me what to fix,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S6,1,Is this a good agent skill? (pastes a SKILL.md),fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S6,2,Is this a good agent skill? (pastes a SKILL.md),fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S6,3,Is this a good agent skill? (pastes a SKILL.md),fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S7,1,Improve the description of my changelog skill so it triggers,fire,1,"TOOL Skill {""args"": ""/home/dev/project/.claude/skills/release-notes"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S7,2,Improve the description of my changelog skill so it triggers,fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S7,3,Improve the description of my changelog skill so it triggers,fire,0,not loaded; loaded instead: release-notes
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S8,1,Score skills/status-report against the rubric,fire,1,"TOOL Skill {""args"": ""skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S8,2,Score skills/status-report against the rubric,fire,1,"TOOL Skill {""args"": ""skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S8,3,Score skills/status-report against the rubric,fire,1,"TOOL Skill {""args"": ""skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S9,1,Check this skill folder for problems before we add it to the team library,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S9,2,Check this skill folder for problems before we add it to the team library,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S9,3,Check this skill folder for problems before we add it to the team library,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S10,1,"What's wrong with this SKILL.md, it's 700 lines",fire,1,"TOOL Skill {""args"": ""SKILL.md in /home/dev/project (user reports it's 700 lines)"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S10,2,"What's wrong with this SKILL.md, it's 700 lines",fire,1,"TOOL Skill {""args"": ""SKILL.md in /home/dev/project (user reports it's ~700 lines)"", ""skill"": ""skill-review""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S10,3,"What's wrong with this SKILL.md, it's 700 lines",fire,1,"TOOL Skill {""skill"": ""skill-review""}"

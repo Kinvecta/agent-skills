@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "prompt": "Draft the October status report from tracker-2026-10.csv",
+    "files": [
+      "evals/status-report/tracker-2026-10.csv"
+    ],
+    "checks": [
+      "Totals: 2 done / 2 in progress / 1 at risk / 1 blocked / 1 not started / 7 total",
+      "Due this month, not done: Security scan of new skills (Raj)",
+      "Due this month, not done: Q4 training rollout (Lee)",
+      "Due this month, not done: Migrate wiki to new host (Sam)",
+      "Every date is YYYY-MM-DD"
+    ],
+    "reference": "python3 skills/status-report/scripts/totals.py evals/status-report/tracker-2026-10.csv --month 2026-10",
+    "notes": "Totals 2 done / 2 in progress / 1 at risk / 1 blocked / 1 not started / 7 total. Due this month, not done: \"Security scan of new skills\" (Raj), \"Q4 training rollout\" (Lee), \"Migrate wiki to new host\" (Sam)."
+  },
+  {
+    "id": 2,
+    "prompt": "Give leadership a monthly update for 2026-10",
+    "files": [
+      "evals/status-report/tracker-2026-10.csv"
+    ],
+    "checks": [
+      "The skill loaded from the description (prompt never says 'status report')",
+      "Same totals as case 1",
+      "Due next month lists Budget draft for FY27 and Update onboarding guide"
+    ],
+    "reference": "python3 skills/status-report/scripts/totals.py evals/status-report/tracker-2026-10.csv --month 2026-10",
+    "notes": "The skill triggers from the description. Same totals. Due next month lists \"Budget draft for FY27\" and \"Update onboarding guide\"."
+  },
+  {
+    "id": 3,
+    "prompt": "Draft the October status report from tracker-tricky.csv",
+    "files": [
+      "evals/status-report/tracker-tricky.csv"
+    ],
+    "checks": [
+      "'Done ' (trailing space) counts as done",
+      "The bad date 10/31/2026 is flagged, not guessed",
+      "Totals match the script's JSON"
+    ],
+    "reference": "python3 skills/status-report/scripts/totals.py evals/status-report/tracker-tricky.csv --month 2026-10",
+    "notes": "\"Done \" still counts as done (the script trims spaces). The script lists the bad date under problems, and the report flags that row instead of guessing."
+  }
+]

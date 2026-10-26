@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write the release notes for 1.4.0 from git-log-1.4.0.txt",
+    "files": [
+      "evals/release-notes/git-log-1.4.0.txt"
+    ],
+    "checks": [
+      "Header says 1.4.0",
+      "Features: CSV export (#142), upload progress bar (#138)",
+      "Fixes: 503 retry (#140), config path with spaces (#137)",
+      "Other: docs (#135), search index (#134)",
+      "No chore or ci commits listed",
+      "Contributors: Ana Ruiz, Raj Patel, Sam Okafor",
+      "No breaking section"
+    ],
+    "reference": "python3 skills/release-notes/scripts/group_changes.py evals/release-notes/git-log-1.4.0.txt --version 1.4.0",
+    "notes": "Header says 1.4.0. Features: CSV export (#142), upload progress bar (#138). Fixes: 503 retry (#140), config path with spaces (#137). Other: docs (#135), search index (#134). No chore or ci commits listed. Contributors: Ana Ruiz, Raj Patel, Sam Okafor. No breaking section."
+  },
+  {
+    "id": 2,
+    "prompt": "What's new in v1.4.0? Draft a changelog entry",
+    "files": [
+      "evals/release-notes/git-log-1.4.0.txt"
+    ],
+    "checks": [
+      "The skill loaded from the description",
+      "Same entries as case 1",
+      "No PR number that isn't in the log"
+    ],
+    "reference": "python3 skills/release-notes/scripts/group_changes.py evals/release-notes/git-log-1.4.0.txt --version 1.4.0",
+    "notes": "The skill triggers from the description. Same entries as case 1. No PR number appears that isn't in the log."
+  },
+  {
+    "id": 3,
+    "prompt": "Draft the release notes for v2.0.0 from git-log-tricky.txt",
+    "files": [
+      "evals/release-notes/git-log-tricky.txt"
+    ],
+    "checks": [
+      "Breaking changes come first",
+      "tidy.toml (#152) has the migration step (rename tidy.ini, run tidy config migrate)",
+      "Python 3.9 drop (#146) comes with a question asking for its migration note",
+      "Reverted bulk delete endpoint (#151) is not listed",
+      "Squash-body bullets are not separate entries",
+      "dependabot and renovate are not credited",
+      "Malformed 'feat(api add pagination' line is raised as a question",
+      "Header says 2.0.0"
+    ],
+    "reference": "python3 skills/release-notes/scripts/group_changes.py evals/release-notes/git-log-tricky.txt --version 2.0.0",
+    "notes": "Breaking changes come first: tidy.toml (#152) with the migration step \"rename tidy.ini to tidy.toml and run `tidy config migrate` once\", and the Python 3.9 drop (#146) with a question asking for its migration note. The bulk delete endpoint (#151) is not listed (it was reverted). The squash-body bullets (\"add toml loader\", \"typo in loader\") are not separate entries. dependabot and renovate are not credited. The malformed line \"feat(api add pagination...\" is raised as a question, not guessed. Header says 2.0.0."
+  }
+]

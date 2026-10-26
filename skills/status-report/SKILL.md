@@ -7,6 +7,11 @@ description: Drafts the monthly project status report from the project tracker C
 
 Turns the project tracker export into the team's one-page monthly status report.
 
+## Gotchas
+
+- **A row the script can't read is a question, not a guess.** The JSON has a `problems` list (a bad date such as `10/31/2026`, an unknown status). Never reinterpret those rows yourself, even when the meaning looks obvious: list each one under the report as a question for the user, and leave it out of the totals the script didn't count.
+- **The report month is `YYYY-MM`** (the header says `2026-10`); dates of tasks are always full `YYYY-MM-DD`.
+
 ## Steps
 
 1. Find the tracker CSV the user names (it has the columns `task, owner, status, due`). If none is given, ask for it.
@@ -19,6 +24,7 @@ Turns the project tracker export into the team's one-page monthly status report.
    - the totals in the report match the JSON exactly
    - every date is in `YYYY-MM-DD` form and falls in the right month
    - each open task names its owner
+   - every item in the JSON's `problems` list appears as a question, and none was silently fixed
    If any check fails, fix the draft and check again.
 
 ## Output

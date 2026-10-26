@@ -1,0 +1,101 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,1,Reports the script's score 2.0/10 (poor) unchanged,pass,0,"The reply never states a score; it has no ""2.0/10"" or ""poor"" rating. The only mention is: ""It is clearly the \""poor\"" example in a poor/good/great set""."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,1,"Top fix is the description (no 'Use when', too short)",pass,0,"""**1. The description is too vague to trigger reliably.**"" The description is the first listed problem, but the reply never names the missing 'Use when' clause as the gap, and the 21-character length isn't mentioned."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,1,Names the missing check step and missing gotchas,pass,0,"""**3. Nothing guards against common failures.**"" This covers guardrails, but the reply never names a missing check/verify step or a Gotchas section."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,1,Changes no file,pass,0,"[downgraded: quote not found in reply/transcript] ""I can write the improved version (the \""good\"" tier) if you'd like."""
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,2,Reports the script's score 2.0/10 (poor) unchanged,pass,0,"The reply never states a numeric score; it says only: ""**Verdict:** This works as a ""poor"" baseline."" There is no 2.0/10."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,2,"Top fix is the description (no 'Use when', too short)",pass,0,"""1. **The description is too thin to trigger reliably.** ""Writes release notes."" gives no trigger phrases"" ... ""Use when asked for release notes"" appears only in the suggested rewrite. The problem list never says the description lacks a 'Use when' clause."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,2,Names the missing check step and missing gotchas,pass,1,"""7. **There is no verification or fallback.**"" ... ""6. **It doesn't cover the points where release notes tend to go wrong.** It says nothing about:"""
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,1,2,Changes no file,pass,1,"FILES CHANGED: none ... ""I can draft the ""good"" or ""great"" version in a sibling directory if you want."""
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,1,Reports 7.5/10 (good),pass,0,"The reply gives no numeric score: ""**Overall: good, not yet great.**"" It never says 7.5/10."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,1,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,0,"The reply suggests no Gotchas section. Its fixes are ""SKILL.md never tells the model to surface `problems`"", overdue tasks, and summary grounding."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,1,Suggests a 'Not for' line,pass,0,"The reply does not suggest a 'Not for' or ""Don't use"" line. Its fixes are about `problems`, overdue tasks, and grounding rules."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,1,Doesn't call the skill untested,pass,0,"[downgraded: quote not found in reply/transcript] The reply says the evals exist and pass: ""`pytest` passes (5 tests)."" It never calls the skill untested."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,2,Reports 7.5/10 (good),pass,0,I can't grade this against your poor / good / great rubric because I can't find it.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,2,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,0,"No Gotchas section is suggested; the fixes are about the overdue-task bug, the `problems` handling, and the script path."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,2,Suggests a 'Not for' line,pass,0,"The reply only mentions in passing that ""the description doesn't mention the CSV input or what the skill isn't for"". It doesn't suggest a 'Not for' line as one of the fixes."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,2,2,Doesn't call the skill untested,pass,1,I read everything in `skills/status-report` and its evals.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,3,1,Says the gotchas are generic and asks for real failures,pass,1,"**Vague gotchas:** ""Handle errors appropriately"", ""Follow best practices"" and ""Be careful with edge cases"" gave no concrete guidance."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,3,1,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,0,I rewrote `evals/skill-review/fixtures/csv-cleanup/SKILL.md`.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,3,2,Says the gotchas are generic and asks for real failures,pass,0,"""Handle errors appropriately"", ""Follow best practices"" and ""Be careful with edge cases"" gave no guidance. They're now four concrete gotchas:"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,without,3,2,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,0,I rewrote `evals/skill-review/fixtures/csv-cleanup/SKILL.md`.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,1,Reports the script's score 2.0/10 (poor) unchanged,pass,1,"**Score:** 2.0/10 (poor), from `lint_skill.py`"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,1,"Top fix is the description (no 'Use when', too short)",pass,0,"[downgraded: quote not found in reply/transcript] 1. **Description with a when-clause** (`SKILL.md` line 3): Replace it with something like: ... ; ""fail, description: 21 characters, too short to say what and when."""
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,1,Names the missing check step and missing gotchas,pass,1,"3. **Boundary and verification** (new sections): ... Add a ""Check before you answer"" list ... - fail, gotchas: no Gotchas section."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,1,Changes no file,pass,1,I didn't change any files. I can apply these fixes if you want.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,2,Reports the script's score 2.0/10 (poor) unchanged,pass,1,"**Score:** 2.0/10 (poor), from `lint_skill.py`"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,2,"Top fix is the description (no 'Use when', too short)",pass,1,"1. **Add a ""Use when"" description** (`SKILL.md:3`): Replace `Writes release notes.` with something like: ... This is the biggest gap: the when-clause and description checks both fail."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,2,Names the missing check step and missing gotchas,pass,1,3. **Add gotchas and a check step** (new sections): Add `## Gotchas` with traps from real failures. ... Then add `## Check before you answer`
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,1,2,Changes no file,pass,1,I changed no files. I can apply these fixes if you'd like.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,1,Reports 7.5/10 (good),pass,1,"**Score:** 7.5/10 (good), from `lint_skill.py`"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,1,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,1,"The script skips rows with an unknown status and lists them under `problems`, so Total can be lower than the row count. ... Dates must be `YYYY-MM-DD`."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,1,Suggests a 'Not for' line,pass,1,"**Add a ""Not for"" line** (under the intro, line 8): for example, ""Not for weekly updates, non-CSV sources, or sending or posting the report."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,1,Doesn't call the skill untested,pass,1,Confirm these against the real failures in `evals/status-report/tracker-tricky.csv`.
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,2,Reports 7.5/10 (good),pass,1,"**Score:** 7.5/10 (good), from `lint_skill.py`"
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,2,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,1,"""Status names are exact: `done, in progress, at risk, blocked, not started`. `Done ` or `In-Progress` is flagged as a problem."""
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,2,Suggests a 'Not for' line,pass,1,"**Add a ""Not for"" line** (under the intro, line 8; 1 pt). For example: ""Not for weekly or ad-hoc updates, or for trackers without the `task, owner, status, due` columns."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,2,2,Doesn't call the skill untested,pass,0,"[downgraded: quote not found in reply/transcript] Nowhere in the reply is the skill called untested; it says ""It will mostly get the job right"" and even points to `evals/status-report/tracker-tricky.csv`."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,1,Says the gotchas are generic and asks for real failures,pass,1,"All three are generic filler. The script passes them only because the section exists. ... I don't know what your exports contain, so I can't write these without samples."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,1,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,1,"I haven't changed any files, because the skill says to report only unless you ask for edits. ... Send me a sample export and tell me whether you want the fixture itself changed. I can then draft the gotchas, the script and the evals."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,2,Says the gotchas are generic and asks for real failures,pass,1,"Replace them with concrete traps from the sales export. ... I don't know the real quirks of this export, so I can't write them. Please give me a sample file or list them."
+output,claude-sonnet-5-5 / Claude Code 2.1.310,with,3,2,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,1,"I haven't changed anything, since this skill's rules say to report first and let a person review changes. ... Do you want me to go ahead on that basis?"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N1,1,Write a new skill that drafts invoices from our billing export,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N1,2,Write a new skill that drafts invoices from our billing export,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N1,3,Write a new skill that drafts invoices from our billing export,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N2,1,Review this pull request,no-fire,0,not loaded; loaded instead: code-review
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N2,2,Review this pull request,no-fire,0,not loaded; loaded instead: code-review
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N2,3,Review this pull request,no-fire,0,not loaded; loaded instead: code-review
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N3,1,Lint my Python code,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N3,2,Lint my Python code,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N3,3,Lint my Python code,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N4,1,Review my AGENTS.md,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N4,2,Review my AGENTS.md,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N4,3,Review my AGENTS.md,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N5,1,"Is this prompt any good? (a system prompt, not a skill)",no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N5,2,"Is this prompt any good? (a system prompt, not a skill)",no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N5,3,"Is this prompt any good? (a system prompt, not a skill)",no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N6,1,Scan this skill for malware before I install it,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N6,2,Scan this skill for malware before I install it,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N6,3,Scan this skill for malware before I install it,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N7,1,Install the release-notes skill into this project,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N7,2,Install the release-notes skill into this project,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N7,3,Install the release-notes skill into this project,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N8,1,Explain what an agent skill is,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N8,2,Explain what an agent skill is,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N8,3,Explain what an agent skill is,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N9,1,Review my resume and list the skills section problems,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N9,2,Review my resume and list the skills section problems,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N9,3,Review my resume and list the skills section problems,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N10,1,Grade these student essays against the rubric,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N10,2,Grade these student essays against the rubric,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,N10,3,Grade these student essays against the rubric,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S1,1,Review this skill: .claude/skills/deploy-preview/,fire,1,"TOOL Skill {""args"": "".claude/skills/deploy-preview/"", ""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S1,2,Review this skill: .claude/skills/deploy-preview/,fire,1,"TOOL Skill {""args"": "".claude/skills/deploy-preview/"", ""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S1,3,Review this skill: .claude/skills/deploy-preview/,fire,1,"TOOL Skill {""args"": "".claude/skills/deploy-preview/"", ""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S2,1,can you lint my SKILL.md before I push it,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S2,2,can you lint my SKILL.md before I push it,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S2,3,can you lint my SKILL.md before I push it,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S3,1,"Grade the skills in this folder poor, good or great",fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S3,2,"Grade the skills in this folder poor, good or great",fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S3,3,"Grade the skills in this folder poor, good or great",fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S4,1,Why doesn't my pdf-forms skill ever load? Check the SKILL.md,fire,1,"TOOL Skill {""args"": ""pdf-forms skill: find its SKILL.md and diagnose why it never loads"", ""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S4,2,Why doesn't my pdf-forms skill ever load? Check the SKILL.md,fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S4,3,Why doesn't my pdf-forms skill ever load? Check the SKILL.md,fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S5,1,Audit the skill I just wrote and tell me what to fix,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S5,2,Audit the skill I just wrote and tell me what to fix,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S5,3,Audit the skill I just wrote and tell me what to fix,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S6,1,Is this a good agent skill? (pastes a SKILL.md),fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S6,2,Is this a good agent skill? (pastes a SKILL.md),fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S6,3,Is this a good agent skill? (pastes a SKILL.md),fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S7,1,Improve the description of my changelog skill so it triggers,fire,0,not loaded; loaded instead: release-notes
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S7,2,Improve the description of my changelog skill so it triggers,fire,0,not loaded; loaded instead: release-notes
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S7,3,Improve the description of my changelog skill so it triggers,fire,0,not loaded; loaded instead: release-notes
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S8,1,Score skills/status-report against the rubric,fire,1,"TOOL Skill {""args"": ""skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S8,2,Score skills/status-report against the rubric,fire,1,"TOOL Skill {""args"": ""skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S8,3,Score skills/status-report against the rubric,fire,1,"TOOL Skill {""args"": ""skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S9,1,Check this skill folder for problems before we add it to the team library,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S9,2,Check this skill folder for problems before we add it to the team library,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S9,3,Check this skill folder for problems before we add it to the team library,fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S10,1,"What's wrong with this SKILL.md, it's 700 lines",fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S10,2,"What's wrong with this SKILL.md, it's 700 lines",fire,1,"TOOL Skill {""skill"": ""skill-review""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310,with,S10,3,"What's wrong with this SKILL.md, it's 700 lines",fire,1,"TOOL Skill {""skill"": ""skill-review""}"

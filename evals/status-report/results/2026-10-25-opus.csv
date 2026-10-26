@@ -1,0 +1,105 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,1,Totals: 2 done / 2 in progress / 1 at risk / 1 blocked / 1 not started / 7 total,pass,1,"7 tracked items: **2 done**, **2 in progress**, **1 at risk**, **1 blocked**, **1 not started**."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,1,"Due this month, not done: Security scan of new skills (Raj)",pass,1,| Security scan of new skills | Raj | At risk | 2026-10-20 | 5 days overdue — recovery plan TBD |
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,1,"Due this month, not done: Q4 training rollout (Lee)",pass,1,| Q4 training rollout | Lee | 2026-10-31 | Due in 6 days |
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,1,"Due this month, not done: Migrate wiki to new host (Sam)",pass,1,| Migrate wiki to new host | Sam | Blocked | 2026-10-15 | 10 days overdue — blocker and new date TBD |
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,1,Every date is YYYY-MM-DD,pass,0,"Two items are **past due**: the wiki migration (blocked, due Oct 15) and the security scan of new skills (at risk, due Oct 20). Q4 training rollout is due at month end (Oct 31)."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,2,Totals: 2 done / 2 in progress / 1 at risk / 1 blocked / 1 not started / 7 total,pass,1,"There are 7 tracked items. 2 are done, 2 are in progress, 1 is at risk, 1 is blocked, and 1 has not started."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,2,"Due this month, not done: Security scan of new skills (Raj)",pass,1,"**Security scan of new skills** (Raj): **At risk**, due Oct 20, now 5 days overdue."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,2,"Due this month, not done: Q4 training rollout (Lee)",pass,1,"**Q4 training rollout** (Lee): due Oct 31, 6 days left"
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,2,"Due this month, not done: Migrate wiki to new host (Sam)",pass,1,"**Migrate wiki to new host** (Sam): **Blocked**, due Oct 15, now 10 days overdue."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,1,2,Every date is YYYY-MM-DD,pass,0,"Dates are written as ""due Oct 15"", ""Oct 20"", ""Nov 12"" rather than YYYY-MM-DD."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,1,The skill loaded from the description (prompt never says 'status report'),pass,0,status-report was not loaded (not installed in this config)
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,1,Same totals as case 1,pass,1,"Of 7 tracked items, 2 are done, 2 are in progress, 1 has not started, and **2 are overdue and need attention**"
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,1,Due next month lists Budget draft for FY27 and Update onboarding guide,pass,0,"The report has no ""Due next month"" section. Update onboarding guide appears under ""## In flight"" and Budget draft for FY27 under ""## Coming up"", so the two are not listed together as due next month."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,2,The skill loaded from the description (prompt never says 'status report'),pass,0,status-report was not loaded (not installed in this config)
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,2,Same totals as case 1,pass,1,"We are tracking 7 items: **2 done, 2 in progress, 1 at risk, 1 blocked, 1 not started.**"
+output,claude-opus-5-5 / Claude Code 2.1.310,without,2,2,Due next month lists Budget draft for FY27 and Update onboarding guide,pass,0,"The file has no ""due next month"" section; it lists ""Update onboarding guide"" and ""Budget draft for FY27"" under ""In flight"". The reply says ""I also left out a \""next month\"" section""."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,3,1,'Done ' (trailing space) counts as done,pass,1,"`Done ` had a trailing space, and `at risk` and `in progress` were in lowercase. I standardized them to ""Done"""
+output,claude-opus-5-5 / Claude Code 2.1.310,without,3,1,"The bad date 10/31/2026 is flagged, not guessed",pass,0,"Due dates used two formats: `10/31/2026` and `2026-10-31`. Both mean Oct 31, so I wrote every date the same way."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,3,1,Totals match the script's JSON,pass,1,"There are 3 tracked items. 1 is done, 1 is in progress, and 1 is at risk."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,3,2,'Done ' (trailing space) counts as done,pass,1,"| Done | 1 | ... **Vendor contract renewal** (owner: Ana, due Oct 3): Done."
+output,claude-opus-5-5 / Claude Code 2.1.310,without,3,2,"The bad date 10/31/2026 is flagged, not guessed",pass,0,`10/31/2026` for one row and `2026-10-31` for the others. I read both as October 31.
+output,claude-opus-5-5 / Claude Code 2.1.310,without,3,2,Totals match the script's JSON,pass,1,"There are 3 tracked items: 1 done, 1 in progress, 1 at risk."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,1,Totals: 2 done / 2 in progress / 1 at risk / 1 blocked / 1 not started / 7 total,pass,1,| 2 | 2 | 1 | 1 | 1 | 7 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,1,"Due this month, not done: Security scan of new skills (Raj)",pass,1,"- Security scan of new skills (Raj), due 2026-10-20, at risk"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,1,"Due this month, not done: Q4 training rollout (Lee)",pass,1,"- Q4 training rollout (Lee), due 2026-10-31, in progress"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,1,"Due this month, not done: Migrate wiki to new host (Sam)",pass,1,"- Migrate wiki to new host (Sam), due 2026-10-15, blocked"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,1,Every date is YYYY-MM-DD,pass,1,"- Update onboarding guide (Lee), due 2026-11-05"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,2,Totals: 2 done / 2 in progress / 1 at risk / 1 blocked / 1 not started / 7 total,pass,1,| 2 | 2 | 1 | 1 | 1 | 7 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,2,"Due this month, not done: Security scan of new skills (Raj)",pass,1,"- Security scan of new skills: Raj, due 2026-10-20, at risk (overdue)"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,2,"Due this month, not done: Q4 training rollout (Lee)",pass,1,"- Q4 training rollout: Lee, due 2026-10-31, in progress"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,2,"Due this month, not done: Migrate wiki to new host (Sam)",pass,1,"- Migrate wiki to new host: Sam, due 2026-10-15, blocked (overdue)"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,1,2,Every date is YYYY-MM-DD,pass,1,"due 2026-10-15, blocked (overdue) ... due 2026-11-05 ... due 2026-11-12"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,1,The skill loaded from the description (prompt never says 'status report'),pass,1,"TOOL Skill {""args"": ""2026-10"", ""skill"": ""status-report""}"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,1,Same totals as case 1,pass,1,| 2 | 2 | 1 | 1 | 1 | 7 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,1,Due next month lists Budget draft for FY27 and Update onboarding guide,pass,1,"- Update onboarding guide: Lee, due 2026-11-05 - Budget draft for FY27: Ana, due 2026-11-12"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,2,The skill loaded from the description (prompt never says 'status report'),pass,1,"TOOL Skill {""args"": ""2026-10"", ""skill"": ""status-report""}"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,2,Same totals as case 1,pass,1,| Done | In progress | At risk | Blocked | Not started | Total | |---|---|---|---|---|---| | 2 | 2 | 1 | 1 | 1 | 7 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,2,2,Due next month lists Budget draft for FY27 and Update onboarding guide,pass,1,"- Update onboarding guide: Lee, due 2026-11-05 - Budget draft for FY27: Ana, due 2026-11-12"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,'Done ' (trailing space) counts as done,pass,1,"The tracker has ""Done "" with a trailing space for the vendor contract renewal. The script handled it and counted the task as done."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,"The bad date 10/31/2026 is flagged, not guessed",pass,1,"Row 3 of the tracker gives Raj's due date as `10/31/2026`, not `YYYY-MM-DD`."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,'Done ' (trailing space) counts as done,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,"The bad date 10/31/2026 is flagged, not guessed",pass,1,"the ""Security scan of new skills"" row has its due date as `10/31/2026` instead of `2026-10-31`."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N1,1,Draft the release notes for v1.4.0,no-fire,0,not loaded; loaded instead: release-notes
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N1,2,Draft the release notes for v1.4.0,no-fire,0,not loaded; loaded instead: release-notes
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N1,3,Draft the release notes for v1.4.0,no-fire,0,not loaded; loaded instead: release-notes
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N2,1,Write my weekly 1:1 notes for my manager,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N2,2,Write my weekly 1:1 notes for my manager,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N2,3,Write my weekly 1:1 notes for my manager,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N3,1,Clean up this CSV: trim spaces and fix the date column,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N3,2,Clean up this CSV: trim spaces and fix the date column,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N3,3,Clean up this CSV: trim spaces and fix the date column,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N4,1,Make a chart of tasks by owner from tracker.csv,no-fire,0,not loaded; loaded instead: dataviz
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N4,2,Make a chart of tasks by owner from tracker.csv,no-fire,0,not loaded; loaded instead: dataviz
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N4,3,Make a chart of tasks by owner from tracker.csv,no-fire,0,not loaded; loaded instead: dataviz
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N5,1,What's the status of PR #142?,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N5,2,What's the status of PR #142?,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N5,3,What's the status of PR #142?,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N6,1,Write a project kickoff plan for the Q1 migration,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N6,2,Write a project kickoff plan for the Q1 migration,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N6,3,Write a project kickoff plan for the Q1 migration,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N7,1,Summarize this meeting transcript,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N7,2,Summarize this meeting transcript,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N7,3,Summarize this meeting transcript,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N8,1,Draft an incident report for yesterday's outage,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N8,2,Draft an incident report for yesterday's outage,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N8,3,Draft an incident report for yesterday's outage,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N9,1,Convert tracker.csv to Excel,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N9,2,Convert tracker.csv to Excel,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N9,3,Convert tracker.csv to Excel,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N10,1,Write a performance review for Sam,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N10,2,Write a performance review for Sam,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,N10,3,Write a performance review for Sam,no-fire,0,not loaded
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S1,1,Draft the October status report from tracker-2026-10.csv,fire,1,"TOOL Skill {""args"": ""tracker-2026-10.csv"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S1,2,Draft the October status report from tracker-2026-10.csv,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S1,3,Draft the October status report from tracker-2026-10.csv,fire,1,"TOOL Skill {""args"": ""tracker-2026-10.csv"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S2,1,Give leadership a monthly update for 2026-10 from the tracker export,fire,1,"TOOL Skill {""args"": ""2026-10"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S2,2,Give leadership a monthly update for 2026-10 from the tracker export,fire,1,"TOOL Skill {""args"": ""2026-10"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S2,3,Give leadership a monthly update for 2026-10 from the tracker export,fire,1,"TOOL Skill {""args"": ""2026-10"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S3,1,"I need the project roll-up for this month, the CSV is attached",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S3,2,"I need the project roll-up for this month, the CSV is attached",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S3,3,"I need the project roll-up for this month, the CSV is attached",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S4,1,what's at risk and what's blocked this month? write it up for my director,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S4,2,what's at risk and what's blocked this month? write it up for my director,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S4,3,what's at risk and what's blocked this month? write it up for my director,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S5,1,Turn this tracker export into the one-page monthly report,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S5,2,Turn this tracker export into the one-page monthly report,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S5,3,Turn this tracker export into the one-page monthly report,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S6,1,"Monthly status update please, tracker.csv is in this folder",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S6,2,"Monthly status update please, tracker.csv is in this folder",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S6,3,"Monthly status update please, tracker.csv is in this folder",fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S7,1,"Summarize the project tracker for the steering committee, month of September",fire,1,"TOOL Skill {""args"": ""September"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S7,2,"Summarize the project tracker for the steering committee, month of September",fire,1,"TOOL Skill {""args"": ""September 2026, steering committee"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S7,3,"Summarize the project tracker for the steering committee, month of September",fire,1,"TOOL Skill {""args"": ""September 2026, steering committee"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S8,1,Which tasks are due this month and not done? Put it in our report format,fire,1,"TOOL Skill {""args"": ""Tasks due this month (October 2026) that are not done"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S8,2,Which tasks are due this month and not done? Put it in our report format,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S8,3,Which tasks are due this month and not done? Put it in our report format,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S9,1,Write the status report for 2026-11,fire,1,"TOOL Skill {""args"": ""2026-11"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S9,2,Write the status report for 2026-11,fire,1,"TOOL Skill {""args"": ""2026-11"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S9,3,Write the status report for 2026-11,fire,1,"TOOL Skill {""args"": ""2026-11"", ""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S10,1,Can you do the usual monthly project update from the task list?,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S10,2,Can you do the usual monthly project update from the task list?,fire,1,"TOOL Skill {""skill"": ""status-report""}"
+trigger,claude-opus-5-5 / Claude Code 2.1.310,with,S10,3,Can you do the usual monthly project update from the task list?,fire,1,"TOOL Skill {""skill"": ""status-report""}"

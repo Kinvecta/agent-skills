@@ -1,0 +1,71 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,1,Header says 1.4.0,pass,1,# Release notes: 1.4.0
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,1,"Features: CSV export (#142), upload progress bar (#138)",pass,1,- **export:** Added `--format csv` to the export command (#142) ... - Show a progress bar for uploads over 10 MB (#138)
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,1,"Fixes: 503 retry (#140), config path with spaces (#137)",pass,1,- **sync:** Retry once when the server returns 503 (#140) ... - A config file path with spaces is no longer split (#137)
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,1,"Other: docs (#135), search index (#134)",pass,1,- **readme:** Documented the export command (#135) ... - **index (perf):** The search index is now built in one pass (#134)
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,1,No chore or ci commits listed,pass,1,The script left out one `chore` and one `ci` commit as internal.
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,1,"Contributors: Ana Ruiz, Raj Patel, Sam Okafor",pass,1,"Ana Ruiz, Raj Patel, Sam Okafor"
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,1,No breaking section,pass,1,## Features ... ## Fixes ... ## Other changes ... ## Contributors
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,2,Header says 1.4.0,pass,1,# Release notes: 1.4.0
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,2,"Features: CSV export (#142), upload progress bar (#138)",pass,1,- **export:** Add `--format csv` to the export command (#142) - Show a progress bar for uploads over 10 MB (#138)
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,2,"Fixes: 503 retry (#140), config path with spaces (#137)",pass,1,- **sync:** Retry once when the server returns 503 (#140) - Config file paths with spaces are no longer split (#137)
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,2,"Other: docs (#135), search index (#134)",pass,1,- **docs (readme):** Document the export command (#135) - **perf (index):** Build the search index in one pass (#134)
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,2,No chore or ci commits listed,pass,1,The script dropped one `chore` and one `ci` commit as non-user-facing
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,2,"Contributors: Ana Ruiz, Raj Patel, Sam Okafor",pass,1,"Ana Ruiz, Raj Patel, Sam Okafor"
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,1,2,No breaking section,pass,1,## Features ... ## Fixes ... ## Other changes ... ## Contributors
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,1,Breaking changes come first,pass,1,## Breaking changes - **config:** Settings are now read from `tidy.toml`. ... ## Fixes
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,1,"tidy.toml (#152) has the migration step (rename tidy.ini, run tidy config migrate)",pass,1,Rename it to `tidy.toml` and run `tidy config migrate` once. (#152)
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,1,Python 3.9 drop (#146) comes with a question asking for its migration note,pass,0,**No migration note for Python 3.9:** #146 is marked breaking (`fix!:`) but has no `BREAKING CHANGE:` text. I kept the entry as is. You may want to say which Python versions are now supported.
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,1,Reverted bulk delete endpoint (#151) is not listed,pass,1,"The bulk delete endpoint (#151) was reverted, so it isn't listed."
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,1,Squash-body bullets are not separate entries,pass,1,"## Fixes - **cli:** The exit code is now 1, not 0, when a file is missing. (#149)"
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,1,dependabot and renovate are not credited,pass,1,"## Contributors Ana Ruiz, Raj Patel, Sam Okafor"
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,1,Malformed 'feat(api add pagination' line is raised as a question,pass,1,"`feat(api add pagination to list endpoint (#148)` is missing its closing parenthesis, so the script skipped it. ... Fix the commit message or tell me to add it by hand."
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,1,Header says 2.0.0,pass,1,# v2.0.0
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,2,Breaking changes come first,pass,1,## Breaking changes - **config:** Settings are now read from `tidy.toml`. ... ## Fixes
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,2,"tidy.toml (#152) has the migration step (rename tidy.ini, run tidy config migrate)",pass,1,Rename it to `tidy.toml` and run `tidy config migrate` once. (#152)
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,2,Python 3.9 drop (#146) comes with a question asking for its migration note,pass,0,"**No migration note for #146:** The Python 3.9 drop is a breaking change with no migration note. You may want a line such as ""Upgrade to Python 3.10 or newer""."
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,2,Reverted bulk delete endpoint (#151) is not listed,pass,1,"The bulk delete endpoint (#151) was added and then reverted, so it isn't listed."
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,2,Squash-body bullets are not separate entries,pass,1,## Breaking changes - **config:** Settings are now read from `tidy.toml`.
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,2,dependabot and renovate are not credited,pass,1,"## Contributors Ana Ruiz, Raj Patel, Sam Okafor"
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,2,Malformed 'feat(api add pagination' line is raised as a question,pass,0,"If it shipped in 2.0.0, add it under Features."
+output,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,3,2,Header says 2.0.0,pass,0,# v2.0.0
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N1,1,Write a blog post announcing v2 to our customers,no-fire,1,"TOOL Bash {""command"": ""cat .claude/skills/release-notes/SKILL.md .claude/skills/release-notes/templates/notes.md"", ""description"": ""Read release-notes skill and template""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N1,2,Write a blog post announcing v2 to our customers,no-fire,1,"TOOL Bash {""command"": ""cat .claude/skills/release-notes/SKILL.md skills/release-notes/templates/notes.md"", ""description"": ""Read release-notes skill and template""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N2,1,Summarize this PR for the reviewer,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N2,2,Summarize this PR for the reviewer,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N3,1,Write a security advisory for the auth bypass fixed in 1.4.1,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N3,2,Write a security advisory for the auth bypass fixed in 1.4.1,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N4,1,Write a commit message for my staged changes,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N4,2,Write a commit message for my staged changes,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N5,1,"Which version should this be, a minor or a patch? (versioning question, no notes)",no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N5,2,"Which version should this be, a minor or a patch? (versioning question, no notes)",no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N6,1,Bump the version in package.json to 1.5.0,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N6,2,Bump the version in package.json to 1.5.0,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N7,1,Explain what changed in this diff,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N7,2,Explain what changed in this diff,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N8,1,Write a tweet about our new release,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N8,2,Write a tweet about our new release,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N9,1,Draft the monthly status report from the tracker CSV,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N9,2,Draft the monthly status report from the tracker CSV,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N10,1,Set up semantic-release so the changelog is generated in CI,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,N10,2,Set up semantic-release so the changelog is generated in CI,no-fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S1,1,Write the release notes for v1.4.0 from changes.txt,fire,1,"TOOL Skill {""args"": ""v1.4.0 from changes.txt"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S1,2,Write the release notes for v1.4.0 from changes.txt,fire,1,"TOOL Skill {""args"": ""v1.4.0 from changes.txt"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S2,1,"can you draft a changelog entry for 2.0.0, git log is pasted below",fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S2,2,"can you draft a changelog entry for 2.0.0, git log is pasted below",fire,1,"TOOL Skill {""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S3,1,What's new in 3.1? Here are the merged PRs since the last tag,fire,1,"TOOL Skill {""args"": ""3.1"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S3,2,What's new in 3.1? Here are the merged PRs since the last tag,fire,1,"TOOL Skill {""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S4,1,"We're bumping the version to 1.5.0 tonight, I need the notes for the GitHub release",fire,1,"TOOL Skill {""args"": ""1.5.0"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S4,2,"We're bumping the version to 1.5.0 tonight, I need the notes for the GitHub release",fire,1,"TOOL Skill {""args"": ""1.5.0"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S5,1,Turn this git log into release notes,fire,1,"TOOL Skill {""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S5,2,Turn this git log into release notes,fire,1,"TOOL Skill {""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S6,1,Summarize the commits between v2.3.0 and v2.4.0 for the releases page,fire,1,"TOOL Skill {""args"": ""v2.3.0..v2.4.0"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S6,2,Summarize the commits between v2.3.0 and v2.4.0 for the releases page,fire,1,"TOOL Skill {""args"": ""Summarize commits between v2.3.0 and v2.4.0 for the releases page"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S7,1,update CHANGELOG.md for the 0.9.0 release using these commits,fire,1,"TOOL Skill {""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S7,2,update CHANGELOG.md for the 0.9.0 release using these commits,fire,1,"TOOL Skill {""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S8,1,"I tagged v1.0.0, what should the release say?",fire,1,"TOOL Skill {""args"": ""v1.0.0"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S8,2,"I tagged v1.0.0, what should the release say?",fire,1,"TOOL Skill {""args"": ""v1.0.0"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S9,1,Draft patch notes for 1.2.1 from this list of fixes,fire,1,"TOOL Skill {""args"": ""1.2.1"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S9,2,Draft patch notes for 1.2.1 from this list of fixes,fire,1,"TOOL Skill {""args"": ""1.2.1"", ""skill"": ""release-notes""}"
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S10,1,"here's `git log v4.1.0..v4.2.0`, write it up for users",fire,0,not loaded
+trigger,claude-sonnet-5-5 / Claude Code 2.1.310 / release-notes:good,with,S10,2,"here's `git log v4.1.0..v4.2.0`, write it up for users",fire,0,not loaded

@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review the skill in examples/poor-good-great/release-notes/poor",
+    "files": [
+      {
+        "src": "examples/poor-good-great/release-notes/poor",
+        "dest": "examples/poor-good-great/release-notes/poor"
+      }
+    ],
+    "checks": [
+      "Reports the script's score 2.0/10 (poor) unchanged",
+      "Top fix is the description (no 'Use when', too short)",
+      "Names the missing check step and missing gotchas",
+      "Changes no file"
+    ],
+    "reference": "python3 skills/skill-review/scripts/lint_skill.py examples/poor-good-great/release-notes/poor --json",
+    "notes": "Reports the script's score (2.0/10, poor) unchanged. Top fix 1 is the description: no \"Use when\" clause and too short to route. Names the missing check step and the missing gotchas. Changes no file."
+  },
+  {
+    "id": 2,
+    "prompt": "Grade skills/status-report against the poor / good / great rubric and tell me the top 3 fixes",
+    "files": [
+      {
+        "src": "skills/status-report",
+        "dest": "skills/status-report"
+      },
+      {
+        "src": "evals/status-report",
+        "dest": "evals/status-report"
+      }
+    ],
+    "checks": [
+      "Reports 7.5/10 (good)",
+      "Suggests a Gotchas section with tracker-specific text, not generic advice",
+      "Suggests a 'Not for' line",
+      "Doesn't call the skill untested"
+    ],
+    "reference": "python3 skills/skill-review/scripts/lint_skill.py skills/status-report --json",
+    "notes": "Reports 7.5/10 (good). Fixes include a Gotchas section and a \"Not for\" line, each with suggested text specific to tracker CSVs (for example, a status with a trailing space, or a date not in `YYYY-MM-DD`), not generic advice. Doesn't say the skill is untested (its evals are in `evals/status-report/`)."
+  },
+  {
+    "id": 3,
+    "prompt": "Lint evals/skill-review/fixtures/csv-cleanup and make it great",
+    "files": [
+      {
+        "src": "evals/skill-review/fixtures/csv-cleanup",
+        "dest": "evals/skill-review/fixtures/csv-cleanup"
+      }
+    ],
+    "checks": [
+      "Says the gotchas are generic and asks for real failures",
+      "Proposes edits and asks before writing (or edits only because the request clearly asked)"
+    ],
+    "reference": "python3 skills/skill-review/scripts/lint_skill.py evals/skill-review/fixtures/csv-cleanup --json",
+    "notes": "The script passes the gotchas check, but the review says the gotchas are generic and asks for real failures. Because the user said \"make it great\", it proposes the edits and asks before writing, or applies them only if the request clearly asked to edit."
+  }
+]

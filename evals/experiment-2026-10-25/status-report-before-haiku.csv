@@ -1,0 +1,10 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,'Done ' (trailing space) counts as done,pass,1,| Done | In progress | At risk | Blocked | Not started | Total | |---|---|---|---|---|---| | 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,"The bad date 10/31/2026 is flagged, not guessed",pass,0,I ran the script on a scratch copy with the date changed to `2026-10-31` ... and the totals above come from that run.
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,Totals match the script's JSON,pass,0,"- Security scan of new skills, Raj, due 2026-10-31, at risk"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,'Done ' (trailing space) counts as done,pass,1,"The ""Done "" value has a trailing space, which the script strips. It is still counted correctly."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,"The bad date 10/31/2026 is flagged, not guessed",pass,0,"The agent corrected the date and listed the task as due 2026-10-31: ""Security scan of new skills. Owner: Raj. Due 2026-10-31. Status: at risk."" It did not flag the row as a problem in the report body, though a note explains the fix."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,Totals match the script's JSON,pass,0,"The report's due-this-month list includes ""Security scan of new skills"", but the script's JSON lists only ""Q4 training rollout"". The counts match (1,1,1,0,0, total 3), but the list comes from a modified-input run."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,3,'Done ' (trailing space) counts as done,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,3,"The bad date 10/31/2026 is flagged, not guessed",pass,0,"I added it by hand as 2026-10-31, which is the only reading that makes sense for a US-format date with day 31."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,3,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |

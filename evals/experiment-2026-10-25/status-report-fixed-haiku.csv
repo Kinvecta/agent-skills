@@ -1,0 +1,10 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,'Done ' (trailing space) counts as done,pass,1,"The ""Done "" status in the CSV has a trailing space. The script still read it as done, so I did not change it."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,"The bad date 10/31/2026 is flagged, not guessed",pass,1,Line 3 of `tracker-tricky.csv`: the due date `10/31/2026` is not in `YYYY-MM-DD` form. Is it 2026-10-31? I left the row as it is and did not count its date.
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,'Done ' (trailing space) counts as done,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,"The bad date 10/31/2026 is flagged, not guessed",pass,1,"the tracker has the due date as `10/31/2026`, which is not in `YYYY-MM-DD` form, so I did not read it."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,3,'Done ' (trailing space) counts as done,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,3,"The bad date 10/31/2026 is flagged, not guessed",pass,1,I have not assumed it means 2026-10-31. Please correct the tracker to `2026-10-31` if that's the intended date.
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,3,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |

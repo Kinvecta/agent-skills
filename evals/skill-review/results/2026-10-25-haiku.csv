@@ -1,0 +1,101 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,Reports the script's score 2.0/10 (poor) unchanged,pass,0,"This skill is a poor example. It is one sentence of instructions plus frontmatter, and it would produce inconsistent release notes."
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,"Top fix is the description (no 'Use when', too short)",pass,0,"**The description is too vague to trigger reliably.** ""Writes release notes."" doesn't say when to use the skill"
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,Names the missing check step and missing gotchas,pass,0,"No explicit check-before-answer step or gotchas section is named; the list says ""No handling of edge cases."""
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,Changes no file,pass,1,I haven't changed any files.
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,Reports the script's score 2.0/10 (poor) unchanged,pass,0,"The reply gives no score. It says: ""This skill is too thin to work reliably. It's the \""poor\"" end of the example set"""
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,"Top fix is the description (no 'Use when', too short)",pass,0,"[downgraded: quote not found in reply/transcript] ""`description: Writes release notes.` is too vague to trigger well. It doesn't say when to use the skill"" ... ""Make the description a trigger: \""Drafts user-facing release notes from a version range of commits or PRs. Use when asked for release notes"""
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,Names the missing check step and missing gotchas,pass,0,"""No verification step, such as checking that every item traces to a real change."" The reply never mentions a missing Gotchas section."
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,Changes no file,pass,1,"""I haven't changed anything."""
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,1,Reports 7.5/10 (good),pass,0,"Reply gives ""## Grade: Good"" with a table of per-criterion grades but no 7.5/10 score."
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,1,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,0,"Top 3 fixes: ""Handle `problems` explicitly"", ""Define the month"", ""Fix the eval harness"". None is a Gotchas section."
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,1,Suggests a 'Not for' line,pass,0,No 'Not for' or 'Don't use' line is suggested in the three fixes.
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,1,Doesn't call the skill untested,pass,0,"[downgraded: quote not found in reply/transcript] ""I didn't run `test_totals.py` or any eval cases; the grades above come from reading the files."" The reply never calls the skill itself untested. It says the trigger tests weren't run and that the eval harness isn't runnable."
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,2,Reports 7.5/10 (good),pass,0,**Grade: Good.** I could not find the poor/good/great rubric ... so I applied my own rubric
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,2,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,0,"No Gotchas section is suggested; fixes are: ""Fix the overdue contradiction."" ... ""Give the judgment sections a source."" ... ""Surface data problems and make the checks runnable."""
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,2,Suggests a 'Not for' line,pass,0,No 'Not for' line is suggested anywhere in the reply's three fixes.
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,2,Doesn't call the skill untested,pass,0,"[downgraded: quote not found in reply/transcript] The reply never calls the skill untested; it says ""I did not change any files. Say if you want me to make these edits."""
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,1,Says the gotchas are generic and asks for real failures,pass,0,"[downgraded: quote not found in reply/transcript] ""Vague gotchas."" ""Handle errors appropriately,"" ""follow best practices,"" and ""be careful with edge cases"" gave the agent nothing to act on."
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,1,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,0,I rewrote `evals/skill-review/fixtures/csv-cleanup/SKILL.md`.
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,2,Says the gotchas are generic and asks for real failures,pass,0,"**Gotchas** were generic advice (""handle errors appropriately"", ""be careful with edge cases"") that doesn't change what the model does. ... Gotchas are concrete: unparseable rows, trailing total rows, and duplicates that may be real sales."
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,2,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,0,I rewrote `evals/skill-review/fixtures/csv-cleanup/SKILL.md`.
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,Reports the script's score 2.0/10 (poor) unchanged,pass,1,"**Score:** 2.0/10 (poor), from `lint_skill.py`"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,"Top fix is the description (no 'Use when', too short)",pass,1,"1. **Description** (line 3): `Writes release notes.` Replace with: `Writes user-facing release notes for a version from a list of changes (commits, PR titles, or changelog entries). Use when the user asks for release notes"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,Names the missing check step and missing gotchas,pass,1,3. **Missing Gotchas and check step** (no section): add a short Gotchas list from real failures on this project ... Add a check step: confirm every bullet maps to a merged change before answering.
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,Changes no file,pass,1,No files in the skill were changed.
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,Reports the script's score 2.0/10 (poor) unchanged,pass,1,"**Score:** 2.0/10 (poor), from `lint_skill.py`"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,"Top fix is the description (no 'Use when', too short)",pass,1,"1. **Description** (frontmatter, line 3): `Writes release notes.` says what, not when."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,Names the missing check step and missing gotchas,pass,1,add a `Not for` line (e.g. ... a `Gotchas` section with real traps ... and a check step: every bullet must trace to a commit or PR
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,Changes no file,pass,1,I didn't change any files in the skill.
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,1,Reports 7.5/10 (good),pass,1,"**Score:** 7.5/10 (good), from `lint_skill.py`"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,1,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,1,"A status with a trailing space (`""Done ""`) is trimmed by the script and counts as done. ... A row with a bad status or date (e.g. `10/31/2026`) is left out of the list and reported under `problems`."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,1,Suggests a 'Not for' line,pass,1,"add something like `Not for release notes, 1:1 notes, single-PR status, CSV cleanup, or charts of the tracker; those are other jobs.`"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,1,Doesn't call the skill untested,pass,1,The trigger wording is solid and the evals cover 10 should-trigger and 10 near-miss queries.
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,2,Reports 7.5/10 (good),pass,1,"**Score:** 7.5/10 (good), from `lint_skill.py`"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,2,"Suggests a Gotchas section with tracker-specific text, not generic advice",pass,1,"A hyphenated value such as `in-progress` is an unknown status, and the row is dropped from the lists. Tell the agent to check `problems` for this rather than fixing the status itself."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,2,Suggests a 'Not for' line,pass,1,"Add a boundary line** (after the intro): For example, ""Not for single-task updates, Slack posts or tracker edits."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,2,Doesn't call the skill untested,pass,0,"[downgraded: quote not found in reply/transcript] The reply never calls the skill untested; it only says ""Nothing was edited."""
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,Says the gotchas are generic and asks for real failures,pass,1,"the gotchas were generic, so the score overstated the skill. ... replaced the three generic lines (""Handle errors appropriately"", ""Follow best practices"", ""Be careful with edge cases"") with six concrete traps"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,0,"TOOL Write {""content"": ""---\nname: csv-cleanup\ndescription: Cleans messy CSV exports from the sales system into a tidy table."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,Says the gotchas are generic and asks for real failures,pass,0,"""**Gotchas:** now specific, but they are general CSV traps. The fixture has no sample export, so nothing reflects the real sales system's format. Replace them with traps from actual exports once you have some."""
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,Proposes edits and asks before writing (or edits only because the request clearly asked),pass,1,"""I applied the fixes below to `evals/skill-review/fixtures/csv-cleanup/SKILL.md`, since you asked me to make it great."""
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N1,1,Write a new skill that drafts invoices from our billing export,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N1,2,Write a new skill that drafts invoices from our billing export,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N1,3,Write a new skill that drafts invoices from our billing export,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N2,1,Review this pull request,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N2,2,Review this pull request,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N2,3,Review this pull request,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N3,1,Lint my Python code,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N3,2,Lint my Python code,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N3,3,Lint my Python code,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N4,1,Review my AGENTS.md,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N4,2,Review my AGENTS.md,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N4,3,Review my AGENTS.md,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N5,1,"Is this prompt any good? (a system prompt, not a skill)",no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N5,2,"Is this prompt any good? (a system prompt, not a skill)",no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N5,3,"Is this prompt any good? (a system prompt, not a skill)",no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N6,1,Scan this skill for malware before I install it,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N6,2,Scan this skill for malware before I install it,no-fire,1,"TOOL Read {""file_path"": ""/home/dev/project/.claude/skills/skill-review/SKILL.md""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N6,3,Scan this skill for malware before I install it,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N7,1,Install the release-notes skill into this project,no-fire,0,not loaded; loaded instead: release-notes
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N7,2,Install the release-notes skill into this project,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N7,3,Install the release-notes skill into this project,no-fire,0,not loaded; loaded instead: release-notes
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N8,1,Explain what an agent skill is,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N8,2,Explain what an agent skill is,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N8,3,Explain what an agent skill is,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N9,1,Review my resume and list the skills section problems,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N9,2,Review my resume and list the skills section problems,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N9,3,Review my resume and list the skills section problems,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N10,1,Grade these student essays against the rubric,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N10,2,Grade these student essays against the rubric,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N10,3,Grade these student essays against the rubric,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S1,1,Review this skill: .claude/skills/deploy-preview/,fire,1,"TOOL Skill {""args"": "".claude/skills/deploy-preview/"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S1,2,Review this skill: .claude/skills/deploy-preview/,fire,1,"TOOL Skill {""args"": "".claude/skills/deploy-preview/"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S1,3,Review this skill: .claude/skills/deploy-preview/,fire,1,"TOOL Skill {""args"": "".claude/skills/deploy-preview/"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S2,1,can you lint my SKILL.md before I push it,fire,1,"TOOL Skill {""args"": ""Lint the SKILL.md before the user pushes it. Locate the SKILL.md under /home/dev/project."", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S2,2,can you lint my SKILL.md before I push it,fire,1,"TOOL Skill {""args"": ""lint my SKILL.md before I push it"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S2,3,can you lint my SKILL.md before I push it,fire,1,"TOOL Skill {""args"": ""Lint the SKILL.md before I push it"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S3,1,"Grade the skills in this folder poor, good or great",fire,1,"TOOL Skill {""args"": ""/home/dev/project/.claude/skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S3,2,"Grade the skills in this folder poor, good or great",fire,1,"TOOL Skill {""args"": ""Grade the skills in /home/dev/project/.claude/skills (status-report, release-notes, skill-review) as poor, good or great."", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S3,3,"Grade the skills in this folder poor, good or great",fire,1,"TOOL Skill {""args"": ""Grade each of the skills in /home/dev/project/.claude/skills (status-report, release-notes, skill-review) as poor, good, or great. Review each SKILL.md at /home/dev/project/.claude/skills/<name>/SKILL.md."", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S4,1,Why doesn't my pdf-forms skill ever load? Check the SKILL.md,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S4,2,Why doesn't my pdf-forms skill ever load? Check the SKILL.md,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S4,3,Why doesn't my pdf-forms skill ever load? Check the SKILL.md,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S5,1,Audit the skill I just wrote and tell me what to fix,fire,1,"TOOL Skill {""args"": ""/home/dev/project/.claude/skills/release-notes/SKILL.md"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S5,2,Audit the skill I just wrote and tell me what to fix,fire,1,"TOOL Skill {""args"": ""/home/dev/project/.claude/skills/release-notes"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S5,3,Audit the skill I just wrote and tell me what to fix,fire,1,"TOOL Skill {""args"": ""The skill I just wrote. Audit it and tell me what to fix. Look in /home/dev/project for the SKILL.md."", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S6,1,Is this a good agent skill? (pastes a SKILL.md),fire,1,"TOOL Skill {""args"": ""Review these three skills and grade each as poor, good, or great: /home/dev/project/.claude/skills/status-report/SKILL.md, /home/dev/project/.claude/skills/release-notes/SKILL.md, /home/dev/project/.claude/skills/skill-review/SKILL.md"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S6,2,Is this a good agent skill? (pastes a SKILL.md),fire,1,"TOOL Skill {""args"": ""/home/dev/project/.claude/skills/status-report/SKILL.md /home/dev/project/.claude/skills/release-notes/SKILL.md /home/dev/project/.claude/skills/skill-review/SKILL.md"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S6,3,Is this a good agent skill? (pastes a SKILL.md),fire,1,"TOOL Skill {""args"": ""Review /home/dev/project/.claude/skills/status-report, /home/dev/project/.claude/skills/release-notes, and /home/dev/project/.claude/skills/skill-review. The user asked \""Is this a good agent skill?\"" and no single skill was named, so grade each one (poor/good/great) with reasons."", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S7,1,Improve the description of my changelog skill so it triggers,fire,0,not loaded; loaded instead: release-notes
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S7,2,Improve the description of my changelog skill so it triggers,fire,0,not loaded; loaded instead: release-notes
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S7,3,Improve the description of my changelog skill so it triggers,fire,0,not loaded; loaded instead: release-notes
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S8,1,Score skills/status-report against the rubric,fire,1,"TOOL Skill {""args"": ""skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S8,2,Score skills/status-report against the rubric,fire,1,"TOOL Skill {""args"": ""skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S8,3,Score skills/status-report against the rubric,fire,1,"TOOL Skill {""args"": ""skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S9,1,Check this skill folder for problems before we add it to the team library,fire,1,"TOOL Skill {""args"": ""/home/dev/project/.claude/skills/status-report"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S9,2,Check this skill folder for problems before we add it to the team library,fire,1,"TOOL Skill {""args"": ""Review all three skill folders under /home/dev/project/.claude/skills (release-notes, skill-review, status-report) for problems before adding to the team library. The folder wasn't specified, so review each one."", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S9,3,Check this skill folder for problems before we add it to the team library,fire,1,"TOOL Skill {""args"": ""Review these skill folders in /home/dev/project/.claude/skills before adding to the team library: release-notes, skill-review, status-report"", ""skill"": ""skill-review""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S10,1,"What's wrong with this SKILL.md, it's 700 lines",fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S10,2,"What's wrong with this SKILL.md, it's 700 lines",fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S10,3,"What's wrong with this SKILL.md, it's 700 lines",fire,0,not loaded

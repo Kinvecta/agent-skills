@@ -1,0 +1,133 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,Header says 1.4.0,pass,1,# 1.4.0 Release Notes
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,"Features: CSV export (#142), upload progress bar (#138)",pass,1,**Export to CSV:** The export command now accepts `--format csv` (#142). ... **Upload progress bar:** Uploads over 10 MB now show a progress bar (#138).
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,"Fixes: 503 retry (#140), config path with spaces (#137)",pass,1,**Sync retries on 503:** Sync retries once when the server returns HTTP 503 (#140). ... **Config paths with spaces:** Config file paths containing spaces are no longer split incorrectly (#137).
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,"Other: docs (#135), search index (#134)",pass,1,**Faster search indexing:** The search index is built in a single pass (#134). ... **Export command docs:** The README now documents the export command (#135).
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,No chore or ci commits listed,pass,0,## Maintenance - Version bumped in package metadata. - CI now caches pip downloads in the test workflow.
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,"Contributors: Ana Ruiz, Raj Patel, Sam Okafor",pass,0,"No contributors section appears in the reply; the headings are New Features, Bug Fixes, Performance, Documentation, Maintenance."
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,1,No breaking section,pass,1,## New Features ... ## Bug Fixes ... ## Performance ... ## Documentation ... ## Maintenance
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,Header says 1.4.0,pass,1,# Release Notes: 1.4.0
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,"Features: CSV export (#142), upload progress bar (#138)",pass,1,**CSV export:** The `export` command now accepts `--format csv` (#142). ... **Upload progress bar:** Uploads larger than 10 MB now show a progress bar (#138).
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,"Fixes: 503 retry (#140), config path with spaces (#137)",pass,1,**Sync retries on 503:** Sync retries once when the server responds with `503 Service Unavailable` (#140). ... (#137).
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,"Other: docs (#135), search index (#134)",pass,1,**Export command:** The README now documents the export command (#135). ... **Faster search indexing:** The search index is now built in a single pass (#134).
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,No chore or ci commits listed,pass,0,## Maintenance - Package metadata version bumped. - CI caches pip downloads in the test workflow.
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,"Contributors: Ana Ruiz, Raj Patel, Sam Okafor",pass,0,"No contributors section in the reply; headings: New Features, Bug Fixes, Performance, Documentation, Maintenance."
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,1,2,No breaking section,pass,1,## New Features ... ## Bug Fixes ... ## Performance ... ## Documentation ... ## Maintenance
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,1,The skill loaded from the description,pass,0,release-notes was not loaded (not installed in this config)
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,1,Same entries as case 1,pass,1,- Progress bar for uploads over 10 MB (#138) ... - `sync`: retry once when the server returns 503 (#140) ... - README now documents the `export` command (#135)
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,1,No PR number that isn't in the log,pass,1,`export`: new `--format csv` option (#142) ... (#138) ... (#140) ... (#137) ... (#134) ... (#135)
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,2,The skill loaded from the description,pass,0,release-notes was not loaded (not installed in this config)
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,2,Same entries as case 1,pass,1,"""`export` command now accepts `--format csv` (#142)"" ... ""Progress bar for uploads over 10 MB (#138)"" ... ""Sync retries once when the server returns 503 (#140)"" ... ""Search index is built in a single pass (#134)"" ... ""README documents the export command (#135)"""
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,2,2,No PR number that isn't in the log,pass,1,"""(#142)"" ... ""(#138)"" ... ""(#140)"" ... ""(#137)"" ... ""(#134)"" ... ""(#135)"""
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,1,Breaking changes come first,pass,1,## Breaking changes - **Config file moved to TOML.**
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,1,"tidy.toml (#152) has the migration step (rename tidy.ini, run tidy config migrate)",pass,1,"Rename it to `tidy.toml`, then run `tidy config migrate` once to convert your settings. (#152)"
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,1,Python 3.9 drop (#146) comes with a question asking for its migration note,pass,0,**Python 3.9 is no longer supported.** Use Python 3.10 or newer. (#146) ... no question asking for the migration note; the agent invented one.
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,1,Reverted bulk delete endpoint (#151) is not listed,pass,1,**Bulk delete endpoint (#151) is omitted.** It was reverted in f1e2d3c
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,1,Squash-body bullets are not separate entries,pass,0,**Config loader typo.** Fixed a typo in the new config loader. (#152)
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,1,dependabot and renovate are not credited,pass,0,Updated `actions/checkout` to v7 in CI. (renovate)
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,1,Malformed 'feat(api add pagination' line is raised as a question,pass,0,I read it as a feature for list endpoints. Check the PR title before publishing.
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,1,Header says 2.0.0,pass,1,# tidy v2.0.0 Release Notes (draft)
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,2,Breaking changes come first,pass,1,## Breaking changes - **Config file is now TOML.**
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,2,"tidy.toml (#152) has the migration step (rename tidy.ini, run tidy config migrate)",pass,1,"Rename it to `tidy.toml`, then run `tidy config migrate` once. (#152)"
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,2,Python 3.9 drop (#146) comes with a question asking for its migration note,pass,0,- **Python 3.9 is no longer supported.** (#146)
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,2,Reverted bulk delete endpoint (#151) is not listed,pass,1,"**Omitted:** The bulk delete endpoint (#151) was reverted in `f1e2d3c`, so it isn't in the release."
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,2,Squash-body bullets are not separate entries,pass,1,**Merge commit:** `d9c0b1a` is the merge for #152 and has no separate entry.
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,2,dependabot and renovate are not credited,pass,1,- Bumped `requests` from 2.32.3 to 2.32.4. (#153)
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,2,Malformed 'feat(api add pagination' line is raised as a question,pass,0,I read it as `feat(api): add pagination to list endpoint`. (guessed and listed under Features)
+output,claude-haiku-5-5 / Claude Code 2.1.310,without,3,2,Header says 2.0.0,pass,1,# Release notes: v2.0.0
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,Header says 1.4.0,pass,1,## 1.4.0 (2026-10-25)
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,"Features: CSV export (#142), upload progress bar (#138)",pass,1,- Add `--format csv` to the `export` command. (#142) - Show a progress bar for uploads over 10 MB. (#138)
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,"Fixes: 503 retry (#140), config path with spaces (#137)",pass,1,- `sync` retries once when the server returns 503. (#140) - A config file path containing spaces is no longer split apart. (#137)
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,"Other: docs (#135), search index (#134)",pass,1,- The README now documents the `export` command. (#135) - The search index is built in a single pass. (#134)
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,No chore or ci commits listed,pass,1,### Features ... ### Fixes ... ### Other changes ... ### Contributors
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,"Contributors: Ana Ruiz, Raj Patel, Sam Okafor",pass,1,"Ana Ruiz, Raj Patel, Sam Okafor"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,1,No breaking section,pass,1,### Features ... ### Fixes ... ### Other changes ... ### Contributors
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,Header says 1.4.0,pass,1,## 1.4.0 (2026-10-25)
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,"Features: CSV export (#142), upload progress bar (#138)",pass,1,- The export command accepts `--format csv` to write CSV output. (#142) ... - Uploads over 10 MB now show a progress bar. (#138)
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,"Fixes: 503 retry (#140), config path with spaces (#137)",pass,1,"- Sync retries once when the server returns 503, instead of failing straight away. (#140) ... - Config file paths containing spaces are no longer split. (#137)"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,"Other: docs (#135), search index (#134)",pass,1,- The export command is documented in the README. (#135) ... - The search index is built in a single pass. (#134)
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,No chore or ci commits listed,pass,1,It dropped two commits as noise: one `chore` (version bump) and one `ci` (pip cache).
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,"Contributors: Ana Ruiz, Raj Patel, Sam Okafor",pass,1,"Ana Ruiz, Raj Patel, Sam Okafor"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,1,2,No breaking section,pass,1,### Features ... ### Fixes ... ### Other changes ... ### Contributors
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,1,The skill loaded from the description,pass,1,"TOOL Skill {""args"": ""v1.4.0"", ""skill"": ""release-notes""}"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,1,Same entries as case 1,pass,1,- Export now supports CSV: `--format csv` is available on the export command. ([#142](https://github.com/OWNER/REPO/pull/142)) ... - The search index is built in a single pass. ([#134](https://github.com/OWNER/REPO/pull/134))
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,1,No PR number that isn't in the log,pass,1,([#142](https://github.com/OWNER/REPO/pull/142)) ... ([#138](https://github.com/OWNER/REPO/pull/138)) ... ([#140](https://github.com/OWNER/REPO/pull/140)) ... ([#137](https://github.com/OWNER/REPO/pull/137)) ... ([#135](https://github.com/OWNER/REPO/pull/135)) ... ([#134](https://github.com/OWNER/REPO/pull/134))
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,2,The skill loaded from the description,pass,1,"TOOL Skill {""args"": ""v1.4.0"", ""skill"": ""release-notes""}"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,2,Same entries as case 1,pass,1,- The export command now accepts `--format csv` for CSV output. (#142) ... - Uploads larger than 10 MB now show a progress bar. (#138) ... - The search index is now built in a single pass. (#134)
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,2,2,No PR number that isn't in the log,pass,1,(#142) ... (#138) ... (#140) ... (#137) ... (#135) ... (#134)
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,Breaking changes come first,pass,1,### Breaking changes - **Settings are read from `tidy.toml` instead of `tidy.ini`.**
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,"tidy.toml (#152) has the migration step (rename tidy.ini, run tidy config migrate)",pass,1,"To upgrade: rename `tidy.ini` to `tidy.toml`, then run `tidy config migrate` once. (#152)"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,Python 3.9 drop (#146) comes with a question asking for its migration note,pass,1,**Python 3.9 migration:** the commit for #146 (`fix!: drop support for Python 3.9`) has no `BREAKING CHANGE:` footer. What should users do?
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,Reverted bulk delete endpoint (#151) is not listed,pass,1,"**Reverted:** ""add bulk delete endpoint"" (#151) was reverted in f1e2d3c, so it does not ship."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,Squash-body bullets are not separate entries,pass,1,"### Fixes - The CLI now exits with code 1, not 0, when a file is missing. (#149)"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,dependabot and renovate are not credited,pass,1,"### Contributors Ana Ruiz, Raj Patel, Sam Okafor"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,Malformed 'feat(api add pagination' line is raised as a question,pass,1,"**Malformed commit (#148):** the subject `feat(api add pagination to list endpoint (#148)` is missing a closing parenthesis and a colon, so the script left it out. Is this a feature"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,1,Header says 2.0.0,pass,1,"## 2.0.0 ({release date, YYYY-MM-DD})"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,Breaking changes come first,pass,1,### Breaking changes - **Settings are read from `tidy.toml`.**
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,"tidy.toml (#152) has the migration step (rename tidy.ini, run tidy config migrate)",pass,1,"To upgrade: rename `tidy.ini` to `tidy.toml`, then run `tidy config migrate` once. (#152)"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,Python 3.9 drop (#146) comes with a question asking for its migration note,pass,1,"**Python 3.9 migration note (#146).** The commit is marked `fix!:` as a breaking change, but it has no migration note. What should users do?"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,Reverted bulk delete endpoint (#151) is not listed,pass,1,"`feat(api): add bulk delete endpoint (#151)` is reverted by `f1e2d3c`, so it's not in these notes."
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,Squash-body bullets are not separate entries,pass,1,### Fixes - The CLI now exits with status 1 instead of 0 when a file is missing. (#149)
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,dependabot and renovate are not credited,pass,1,"### Contributors Ana Ruiz, Raj Patel, Sam Okafor"
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,Malformed 'feat(api add pagination' line is raised as a question,pass,1,**Malformed commit (line 51).** `feat(api add pagination to list endpoint (#148)` is missing a closing parenthesis
+output,claude-haiku-5-5 / Claude Code 2.1.310,with,3,2,Header says 2.0.0,pass,1,"## 2.0.0 (release date: 2026-10-25, confirm)"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N1,1,Write a blog post announcing v2 to our customers,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N1,2,Write a blog post announcing v2 to our customers,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N1,3,Write a blog post announcing v2 to our customers,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N2,1,Summarize this PR for the reviewer,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N2,2,Summarize this PR for the reviewer,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N2,3,Summarize this PR for the reviewer,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N3,1,Write a security advisory for the auth bypass fixed in 1.4.1,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N3,2,Write a security advisory for the auth bypass fixed in 1.4.1,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N3,3,Write a security advisory for the auth bypass fixed in 1.4.1,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N4,1,Write a commit message for my staged changes,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N4,2,Write a commit message for my staged changes,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N4,3,Write a commit message for my staged changes,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N5,1,"Which version should this be, a minor or a patch? (versioning question, no notes)",no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N5,2,"Which version should this be, a minor or a patch? (versioning question, no notes)",no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N5,3,"Which version should this be, a minor or a patch? (versioning question, no notes)",no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N6,1,Bump the version in package.json to 1.5.0,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N6,2,Bump the version in package.json to 1.5.0,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N6,3,Bump the version in package.json to 1.5.0,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N7,1,Explain what changed in this diff,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N7,2,Explain what changed in this diff,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N7,3,Explain what changed in this diff,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N8,1,Write a tweet about our new release,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N8,2,Write a tweet about our new release,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N8,3,Write a tweet about our new release,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N9,1,Draft the monthly status report from the tracker CSV,no-fire,0,not loaded; loaded instead: status-report
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N9,2,Draft the monthly status report from the tracker CSV,no-fire,0,not loaded; loaded instead: status-report
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N9,3,Draft the monthly status report from the tracker CSV,no-fire,0,not loaded; loaded instead: status-report
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N10,1,Set up semantic-release so the changelog is generated in CI,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N10,2,Set up semantic-release so the changelog is generated in CI,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,N10,3,Set up semantic-release so the changelog is generated in CI,no-fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S1,1,Write the release notes for v1.4.0 from changes.txt,fire,1,"TOOL Skill {""args"": ""Write the release notes for v1.4.0 from changes.txt"", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S1,2,Write the release notes for v1.4.0 from changes.txt,fire,1,"TOOL Skill {""args"": ""Write the release notes for v1.4.0 from changes.txt"", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S1,3,Write the release notes for v1.4.0 from changes.txt,fire,1,"TOOL Skill {""args"": ""v1.4.0 from changes.txt"", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S2,1,"can you draft a changelog entry for 2.0.0, git log is pasted below",fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S2,2,"can you draft a changelog entry for 2.0.0, git log is pasted below",fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S2,3,"can you draft a changelog entry for 2.0.0, git log is pasted below",fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S3,1,What's new in 3.1? Here are the merged PRs since the last tag,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S3,2,What's new in 3.1? Here are the merged PRs since the last tag,fire,1,"TOOL Skill {""args"": ""3.1"", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S3,3,What's new in 3.1? Here are the merged PRs since the last tag,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S4,1,"We're bumping the version to 1.5.0 tonight, I need the notes for the GitHub release",fire,1,"TOOL Skill {""args"": ""1.5.0"", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S4,2,"We're bumping the version to 1.5.0 tonight, I need the notes for the GitHub release",fire,1,"TOOL Skill {""args"": ""Version 1.5.0 for the GitHub release, project at /home/dev/project"", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S4,3,"We're bumping the version to 1.5.0 tonight, I need the notes for the GitHub release",fire,1,"TOOL Skill {""args"": ""1.5.0"", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S5,1,Turn this git log into release notes,fire,1,"TOOL Skill {""args"": ""Turn the git log into release notes. The project is at /home/dev/project, which is not a git repository, so look for a git log export there."", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S5,2,Turn this git log into release notes,fire,1,"TOOL Skill {""args"": ""Turn the git log into release notes. Working directory: /home/dev/project (not a git repository per environment info)."", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S5,3,Turn this git log into release notes,fire,1,"TOOL Skill {""args"": ""Turn the git log into release notes. The working directory /home/dev/project is not a git repository, so look for a git log export in the project."", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S6,1,Summarize the commits between v2.3.0 and v2.4.0 for the releases page,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S6,2,Summarize the commits between v2.3.0 and v2.4.0 for the releases page,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S6,3,Summarize the commits between v2.3.0 and v2.4.0 for the releases page,fire,1,"TOOL Read {""file_path"": ""/home/dev/project/.claude/skills/release-notes/SKILL.md""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S7,1,update CHANGELOG.md for the 0.9.0 release using these commits,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S7,2,update CHANGELOG.md for the 0.9.0 release using these commits,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S7,3,update CHANGELOG.md for the 0.9.0 release using these commits,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S8,1,"I tagged v1.0.0, what should the release say?",fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S8,2,"I tagged v1.0.0, what should the release say?",fire,1,"TOOL Skill {""args"": ""v1.0.0"", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S8,3,"I tagged v1.0.0, what should the release say?",fire,1,"TOOL Skill {""args"": ""v1.0.0"", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S9,1,Draft patch notes for 1.2.1 from this list of fixes,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S9,2,Draft patch notes for 1.2.1 from this list of fixes,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S9,3,Draft patch notes for 1.2.1 from this list of fixes,fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S10,1,"here's `git log v4.1.0..v4.2.0`, write it up for users",fire,0,not loaded
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S10,2,"here's `git log v4.1.0..v4.2.0`, write it up for users",fire,1,"TOOL Skill {""args"": ""v4.2.0 (git log v4.1.0..v4.2.0), for users"", ""skill"": ""release-notes""}"
+trigger,claude-haiku-5-5 / Claude Code 2.1.310,with,S10,3,"here's `git log v4.1.0..v4.2.0`, write it up for users",fire,1,"TOOL Skill {""args"": ""git log v4.1.0..v4.2.0 (user asked for write-up for users)"", ""skill"": ""release-notes""}"

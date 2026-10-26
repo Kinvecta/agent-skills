@@ -94,6 +94,22 @@ The same skill can help one model and hurt another: in one study that happened o
 
 Most agents have a non-interactive mode you can loop over the prompts with, for example Claude Code's print mode (`claude -p "<prompt>"`). Run each prompt from a folder with the skill installed and from one without it, save each reply to a file, then grade them as in step 4. Flags and output formats change, so check your agent's current docs. Grading stays a human job (or a second model with the checks as a rubric), and you still need evidence for every pass.
 
+For Claude Code, this repo has the loop ready made. Each skill's prompts, sample files and checks are in `evals/<skill>/cases.json`.
+
+```bash
+# plan first: prints every run and the count, runs nothing
+python3 tools/run_claude_evals.py --skill release-notes --models haiku,sonnet --runs 2 --out eval-runs --dry-run
+# output evals, without and with the skill (a fresh session and scratch project per run)
+python3 tools/run_claude_evals.py --skill release-notes --models haiku,sonnet --runs 2 --out eval-runs
+# trigger tests: every skill in skills/ installed together, did release-notes load?
+python3 tools/run_claude_evals.py --skill release-notes --triggers --models haiku,sonnet --runs 3 --out eval-runs
+# grade the output runs with a second model; a pass whose quote isn't in the reply becomes a 0
+python3 tools/grade_runs.py eval-runs
+python3 tools/eval_report.py eval-runs/csv/release-notes__sonnet.csv
+```
+
+Each run's full transcript, reply and `meta.json` (skills listed and loaded, cost, time, files changed) are kept under `eval-runs/runs/`, and an interrupted run picks up where it stopped. Check the `skills_listed` field: if a personal skill with the same name shows up there, your baseline isn't clean. Read a sample of the graded checks yourself before you trust the numbers; the grader is a model too.
+
 ## Files
 
 | **skill** | **output evals** | **trigger tests** | **results sheet** | **script tests** |

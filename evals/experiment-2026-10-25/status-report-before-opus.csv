@@ -1,0 +1,10 @@
+kind,model,config,case,run,check,expected,result,evidence
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,'Done ' (trailing space) counts as done,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,"The bad date 10/31/2026 is flagged, not guessed",pass,0,I read the date as 2026-10-31 and added the task to that list myself.
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,1,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,'Done ' (trailing space) counts as done,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,"The bad date 10/31/2026 is flagged, not guessed",pass,1,"Security scan of new skills, Raj, 2026-10-31, at risk *(the tracker has this date as 10/31/2026; see the reviewer note)*"
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,2,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,3,'Done ' (trailing space) counts as done,pass,1,"Row 1's status is `Done ` with a trailing space. The script still counted it as done, so it doesn't affect the numbers."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,3,"The bad date 10/31/2026 is flagged, not guessed",pass,0,"I added it back by hand, because without it the report would skip the only at-risk task. `10/31/2026` can only mean October 31."
+output,claude-opus-5-5 / Claude Code 2.1.310,with,3,3,Totals match the script's JSON,pass,1,| 1 | 1 | 1 | 0 | 0 | 3 |

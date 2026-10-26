@@ -1,0 +1,21 @@
+n,run,check,grader_result,human_result,agree,note
+1,release-notes-poor/opus/with/case3-run2,Malformed 'feat(api add pagination' line is raised as a question,1,0,0,"Disagree: #148 is listed under New features with an invented description; the later note asks what changes for clients, not what the malformed line meant. Guessed, not raised as a question."
+2,release-notes-good/sonnet/with/case1-run1,"Fixes: 503 retry (#140), config path with spaces (#137)",1,1,1,
+3,release-notes-good/opus/with/case3-run1,Squash-body bullets are not separate entries,1,1,1,"Grader's quote is weak (the Bug fixes line), but the verdict is right: no squash bullet is an entry."
+4,release-notes-poor/opus/with/case3-run2,Breaking changes come first,1,1,1,
+5,release-notes/opus/without/case3-run2,Breaking changes come first,1,1,1,
+6,release-notes-poor/sonnet/with/case3-run2,Breaking changes come first,1,1,1,
+7,release-notes/haiku/with/case2-run2,Same entries as case 1,1,1,1,All six entries present.
+8,release-notes/sonnet/without/case1-run1,"Fixes: 503 retry (#140), config path with spaces (#137)",1,1,1,"Verified in the written file RELEASE_NOTES_1.4.0.md, lines 11-12."
+9,release-notes/opus/with/case3-run2,Breaking changes come first,1,1,1,
+10,status-report/haiku/with/case1-run2,"Due this month, not done: Q4 training rollout (Lee)",1,1,1,
+11,skill-review/opus/without/case3-run2,Says the gotchas are generic and asks for real failures,0,1,0,"Disagree (borderline): says the old gotchas 'said nothing useful', admits its new ones are general CSV problems, and says the next step is listing the sales system's real issues."
+12,release-notes/haiku/without/case1-run2,"Contributors: Ana Ruiz, Raj Patel, Sam Okafor",0,0,1,No contributors in the reply or the written file.
+13,skill-review/haiku/without/case3-run1,Proposes edits and asks before writing (or edits only because the request clearly asked),0,0,1,Rewrote the fixture without asking.
+14,release-notes-poor/haiku/with/case3-run2,Malformed 'feat(api add pagination' line is raised as a question,0,0,1,Listed as a feature; the note says 'I wrote the note from the rest of the subject'.
+15,release-notes-poor/sonnet/with/case3-run1,Squash-body bullets are not separate entries,0,0,1,"#152's squash bullets (toml loader, missing-file test) became a separate New features entry."
+16,skill-review/opus/without/case2-run1,"Suggests a Gotchas section with tracker-specific text, not generic advice",0,0,1,The full reply never suggests a Gotchas section.
+17,release-notes/sonnet/without/case3-run1,Python 3.9 drop (#146) comes with a question asking for its migration note,0,0,1,
+18,skill-review/haiku/without/case3-run2,Says the gotchas are generic and asks for real failures,0,0,1,"Borderline: calls the old gotchas generic, but swaps in invented 'concrete' ones and only offers to check its steps against sample exports; it doesn't ask for real failures."
+19,release-notes/haiku/without/case1-run1,No chore or ci commits listed,0,0,1,Lists the version bump and CI cache under Maintenance.
+20,release-notes-poor/sonnet/with/case3-run2,Python 3.9 drop (#146) comes with a question asking for its migration note,0,0,1,
